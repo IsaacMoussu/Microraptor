@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1790665495 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\cube.cpp
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<cstdlib>
+
+1792422054 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
+	"dino/fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792415922 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792420829 c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\fonctions.h
+
+1792420144 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\queue.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792420775 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesarriere.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792500913 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesavant.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
