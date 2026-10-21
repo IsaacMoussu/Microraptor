@@ -9,22 +9,23 @@
 void dessineTete()
 {
     glPushMatrix();
+    glTranslatef(-0.3, -0.8, 0.0);
     glScalef(2.0, 2.0, 2.0);
     // tete (vert foncé)
     glColor3f(0.2f, 0.3f, 0.2f); // VERT
     glPushMatrix();
     glTranslatef(-1.9, 1.6, 0.0);
-    glRotatef(8.0, 0, 0, 1.0);
+    glRotatef(7.0, 0, 0, 1.0);
     glScalef(1.5, 0.8, 0.7);
     glutSolidCube(1.0);
     glPopMatrix();
 
-    // museeau (sphere cylindrique grise)
+    // museau (sphere cylindrique grise)
     // glColor3f(0.35, 0.3, 0.3);
     glEnable(GL_TEXTURE_2D);
     glPushMatrix();
     glTranslatef(-3.0, 1.45, 0.0);
-    glRotatef(8.0, 0, 0, 1.0);
+    glRotatef(7.0, 0, 0, 1.0);
     glRotatef(-90.0, 0, 1, 0);
     glScalef(0.35, 0.40, 1.2);
     // dessineSphere();
@@ -44,9 +45,9 @@ void dessineTete()
     // Gorge rouge
     glColor3f(0.6, 0.0, 0.0); // Rouge
     glPushMatrix();
-    glTranslatef(-1.7, 1.1, 0.0);
-    glRotatef(8.0, 0, 0, 1.0);
-    glScalef(1.0, 0.4, 0.75);
+    glTranslatef(-1.7, 1.0, 0.0);
+    glRotatef(7.0, 0, 0, 1.0);
+    glScalef(1.0, 0.4, 0.8);
     glutSolidCube(1.0);
     glPopMatrix();
 
@@ -74,27 +75,6 @@ void dessineTete()
     glPushMatrix();
     glTranslatef(-2.45, 1.72, -0.37);
     glutSolidSphere(0.1, 16, 16);
-    glPopMatrix();
-
-    // plumes au dessu de la tete
-    glColor3f(0.2f, 0.3f, 0.2f); // VERT
-    glPushMatrix();
-    glTranslatef(-1.7, 2.05, 0.0);
-    glRotatef(15.0, 0, 0, 1.0);
-    glScalef(0.9, 0.2, 0.5);
-    glutSolidCube(1.0);
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(-1.0, 1.95, 0.0);
-    glRotatef(20.0, 0, 0, -1.0);
-    glScalef(0.8, 0.2, 0.6);
-    glutSolidCube(1.0);
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(-0.5, 1.55, 0.0);
-    glRotatef(35.0, 0, 0, -1.0);
-    glScalef(0.7, 0.2, 0.7);
-    glutSolidCube(1.0);
     glPopMatrix();
     glPopMatrix();
 }
