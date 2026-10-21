@@ -21,83 +21,86 @@ void dessinePattesArriere(){
                 glRotatef(-90 + 50 * i, 0, -1, 0);
                 glutSolidCylinder(0.5, 5.0, 6.0, 10.0);
             glPopMatrix();
+            glColor3f(0.35f, 0.3f, 0.3f); // MARRON
             glPushMatrix();
                 glTranslatef(9.3, 1.0, 7.2 * i);
                 glRotatef(90 - 80 * i, 0, -1, 0);
                 glutSolidCylinder(0.5, 5.0, 6.0, 10.0);
             glPopMatrix();
             glPushMatrix();
-                glTranslatef(-0.8, 1.5, 6.5 * i);
-                glRotatef(90 - 50 * i, 0, -1, 0);
+                glTranslatef(8.4, 0.9, 12.3 * i);
+                glRotatef(90, 0, 0, 1);
+                glRotatef(90 + 70 * i, 0, 1, 0);
                 glScalef(1.0, 0.5, 0.5);
                 glutSolidSphere(1.0, 8.0, 8.0);
             glPopMatrix();
 
             //GRIFFES 1
             glPushMatrix();
-                glTranslatef(-0.6, 1.5, 7.0 * i);
-                glRotatef(90 - 60 * i, 0, -1, 0);
-                glRotatef(30, -1, 0, 0);
+                glTranslatef(8.1, 1.5, 12.3 * i);
+                glRotatef(-90 - 70 * i, 1, 0, 0);
+                glRotatef(-60, 0, 1, 0);
                 glutSolidCylinder(0.2, 1.0, 6.0, 10.0);
             glPopMatrix();
             glPushMatrix();
-                glTranslatef(-0.95, 2.0, 7.6 * i);
-                glRotatef(90 - 60 * i, 0, -1, 0);
-                glRotatef(-50, -1, 0, 0);
-                glutSolidCylinder(0.2, 0.6, 6.0, 10.0);
+                glTranslatef(7.4, 1.7, 11.8 * i);
+                glRotatef(-90 - 70 * i, 1, 0, 0);
+                glRotatef(-120, 0, 1, 0);
+                glutSolidCylinder(0.2, 1.0, 6.0, 10.0);
             glPopMatrix();
-            glColor3f(0.1f, 0.1f, 0.9f); // GRIS
+            glColor3f(0.1f, 0.1f, 0.1f); // GRIS
             glPushMatrix();
-                glTranslatef(-1.15, 1.5, 7.95 * i);
-                glRotatef(90 - 60 * i, 0, -1, 0);
-                glRotatef(-50, -1, 0, 0);
-                glutSolidCone(0.2, 0.6, 6.0, 10.0);
+                glTranslatef(6.6, 1.55, 12.2 * i);
+                glRotatef(-90 - 70 * i, 1, 0, 0);
+                glRotatef(-120, 0, 1, 0);
+                glutSolidCone(0.2, 1.0, 6.0, 10.0);
             glPopMatrix();
 
             //GRIFFES 2
-            glColor3f(0.2f, 0.3f, 0.2f); // VERT
+            glColor3f(0.35f, 0.3f, 0.3f); // MARRON
             glPushMatrix();
-                glTranslatef(-0.9, 1.5, 6.7 * i);
-                glRotatef(90 - 50 * i, 0, -1, 0);
-                glRotatef(30, -1, 0, 0);
+                glTranslatef(8.1, 1.0, 12.15 * i);
+                glRotatef(-90 - 70 * i, 1, 0, 0);
+                glRotatef(-60, 0, 1, 0);
                 glutSolidCylinder(0.2, 1.0, 6.0, 10.0);
             glPopMatrix();
             glPushMatrix();
-                glTranslatef(-1.35, 2.0, 7.2 * i);
-                glRotatef(90 - 50 * i, 0, -1, 0);
-                glRotatef(-50, -1, 0, 0);
-                glutSolidCylinder(0.2, 0.6, 6.0, 10.0);
+                glTranslatef(7.4, 1.15, 11.65 * i);
+                glRotatef(-90 - 70 * i, 1, 0, 0);
+                glRotatef(-120, 0, 1, 0);
+                glutSolidCylinder(0.2, 1.0, 6.0, 10.0);
             glPopMatrix();
-            glColor3f(0.1f, 0.1f, 0.9f); // GRIS
+            glColor3f(0.1f, 0.1f, 0.1f); // GRIS
             glPushMatrix();
-                glTranslatef(-1.6, 1.5, 7.5 * i);
-                glRotatef(90 - 50 * i, 0, -1, 0);
-                glRotatef(-50, -1, 0, 0);
-                glutSolidCone(0.2, 0.6, 6.0, 10.0);
+                glTranslatef(6.6, 1.0, 12.0 * i);
+                glRotatef(-90 - 70 * i, 1, 0, 0);
+                glRotatef(-120, 0, 1, 0);
+                glutSolidCone(0.2, 1.0, 6.0, 10.0);
             glPopMatrix();
 
             //GRIFFES 3
-            glColor3f(0.2f, 0.3f, 0.2f); // VERT
-            glPushMatrix();
-                glTranslatef(-1.2, 1.5, 6.4 * i);
-                glRotatef(90 - 40 * i, 0, -1, 0);
-                glRotatef(30, -1, 0, 0);
+            glColor3f(0.35f, 0.3f, 0.3f); // MARRON
+           glPushMatrix();
+                glTranslatef(8.1, 0.4, 11.95 * i);
+                glRotatef(-90 - 70 * i, 1, 0, 0);
+                glRotatef(-60, 0, 1, 0);
                 glutSolidCylinder(0.2, 1.0, 6.0, 10.0);
             glPopMatrix();
             glPushMatrix();
-                glTranslatef(-1.75, 2.0, 6.8 * i);
-                glRotatef(90 - 40 * i, 0, -1, 0);
-                glRotatef(-50, -1, 0, 0);
-                glutSolidCylinder(0.2, 0.6, 6.0, 10.0);
+                glTranslatef(7.4, 0.6, 11.4 * i);
+                glRotatef(-90 - 70 * i, 1, 0, 0);
+                glRotatef(-120, 0, 1, 0);
+                glutSolidCylinder(0.2, 1.0, 6.0, 10.0);
             glPopMatrix();
-            glColor3f(0.1f, 0.1f, 0.9f); // GRIS
+            glColor3f(0.1f, 0.1f, 0.1f); // GRIS
             glPushMatrix();
-                glTranslatef(-2.05, 1.5, 7.05 * i);
-                glRotatef(90 - 40 * i, 0, -1, 0);
-                glRotatef(-50, -1, 0, 0);
-                glutSolidCone(0.2, 0.6, 6.0, 10.0);
+                glTranslatef(6.6, 0.45, 11.8 * i);
+                glRotatef(-90 - 70 * i, 1, 0, 0);
+                glRotatef(-120, 0, 1, 0);
+                glutSolidCone(0.2, 1.0, 6.0, 10.0);
             glPopMatrix();
 
+            dessineMimineArriere(i);
         glPopMatrix();
     }
 

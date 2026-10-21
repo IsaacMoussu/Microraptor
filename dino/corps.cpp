@@ -58,7 +58,7 @@ glBegin(GL_QUADS);
 glEnd();
 
 // Le dessous du Tron�on 1
-glColor3f(0.8f, 0.8f, 0.7f);
+glColor3f(0.8f, 0.8f, 0.7f);//BEIGE
 glBegin(GL_QUADS);
     // Face 3 (Pente inf�rieure Z max)
     glVertex3f(0.0f, 1.0f, 1.0f);   glVertex3f(6.0f, 1.0f, 0.82f);  glVertex3f(6.0f, 0.0f, 0.41f);  glVertex3f(0.0f, 0.0f, 0.5f);
@@ -84,7 +84,7 @@ glBegin(GL_QUADS);
 glEnd();
 
 // Le dessous du Tron�on 2
-glColor3f(0.8f, 0.8f, 0.7f);
+glColor3f(0.8f, 0.8f, 0.7f);//BEIGE
 glBegin(GL_QUADS);
     // Face 3
     glVertex3f(6.0f, 1.0f, 0.82f);  glVertex3f(12.0f, 1.6f, 0.64f);  glVertex3f(12.0f, 1.2f, 0.36f); glVertex3f(6.0f, 0.0f, 0.41f);
