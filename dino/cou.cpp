@@ -6,36 +6,73 @@
 #endif
 #include <cstdlib>
 
-void dessineCou()
-{
-    // Cou vert foncé
-    glPushMatrix();
-    glColor3f(0.2f, 0.3f, 0.2f); // VERT
-    glTranslatef(-0.35, 0.0, 0.0);
-    glScalef(1.9,1.9,1.9);
-    glPushMatrix();
-    glTranslatef(-0.4, 1.0, 0.0);
-    glRotatef(19.0, 0, 0, -1.0);
-    glScalef(1.9, 0.7, 1.0);
-    glutSolidCube(1.0);
-    glPopMatrix();
+void dessineCou(){
 
-    // Cou beige
-    glColor3f(0.8f, 0.8f, 0.7f); //BEIGE
-    glPushMatrix();
-    glTranslatef(-0.3, 0.45, 0.0);
-    glRotatef(20.0, 0, 0, -1.0);
-    glScalef(1.3, 0.50, 1.01);
-    glutSolidCube(1.0);
-    glPopMatrix();
+// dessus  1
+glColor3f(0.2f, 0.3f, 0.2f); // VERT
+glBegin(GL_QUADS);
+    // Face 1 (Sommet Plat Supérieur)
+    glVertex3f(0.0f, 2.0f, -1.0f);  glVertex3f(-0.375f, 2.4f, -0.8f); glVertex3f(-0.375f, 2.4f, 0.8f);  glVertex3f(0.0f, 2.0f, 1.0f);
+    // Face 2 (Bord vertical Z max)
+    glVertex3f(0.0f, 2.0f, 1.0f);   glVertex3f(-0.375f, 2.4f, 0.8f);  glVertex3f(-0.375f, 1.45f, 0.8f); glVertex3f(0.0f, 1.0f, 1.0f);
+    // Face 6 (Bord vertical Z min)
+    glVertex3f(0.0f, 1.0f, -1.0f);  glVertex3f(-0.375f, 1.45f, -0.8f); glVertex3f(-0.375f, 2.4f, -0.8f); glVertex3f(0.0f, 2.0f, -1.0f);
+glEnd();
 
-    glPushMatrix();
-    glTranslatef(-0.9, 0.65, 0.0);
-    glRotatef(15.0, 0, 0, -1.0);
-    glScalef(1.3, 0.5, 1.01);
-    glutSolidCube(1.0);
-    glPopMatrix();
+// dessous 1
+glColor3f(0.8f, 0.8f, 0.7f); // BEIGE
+glBegin(GL_QUADS);
+    // Face 3 (Pente inférieure Z max)
+    glVertex3f(0.0f, 1.0f, 1.0f);   glVertex3f(-0.375f, 1.45f, 0.8f);  glVertex3f(-0.375f, 0.5f, 0.4f);  glVertex3f(0.0f, 0.0f, 0.5f);
+    // Face 4 (Fond Plat Inférieur)
+    glVertex3f(0.0f, 0.0f, 0.5f);   glVertex3f(-0.375f, 0.5f, 0.4f);   glVertex3f(-0.375f, 0.5f, -0.4f); glVertex3f(0.0f, 0.0f, -0.5f);
+    // Face 5 (Pente inférieure Z min)
+    glVertex3f(0.0f, 0.0f, -0.5f);  glVertex3f(-0.375f, 0.5f, -0.4f);  glVertex3f(-0.375f, 1.45f, -0.8f); glVertex3f(0.0f, 1.0f, -1.0f);
+glEnd();
 
-    glPopMatrix();
-    
+
+// dessus 2
+glColor3f(0.2f, 0.3f, 0.2f); // VERT
+glBegin(GL_QUADS);
+    // Face 1
+    glVertex3f(-0.375f, 2.4f, -0.8f);   glVertex3f(-0.75f, 2.8f, -0.6f);  glVertex3f(-0.75f, 2.8f, 0.6f);  glVertex3f(-0.375f, 2.4f, 0.8f);
+    // Face 2
+    glVertex3f(-0.375f, 2.4f, 0.8f);    glVertex3f(-0.75f, 2.8f, 0.6f);   glVertex3f(-0.75f, 1.9f, 0.6f);  glVertex3f(-0.375f, 1.45f, 0.8f);
+    // Face 6
+    glVertex3f(-0.375f, 1.45f, -0.8f);  glVertex3f(-0.75f, 1.9f, -0.6f);  glVertex3f(-0.75f, 2.8f, -0.6f); glVertex3f(-0.375f, 2.4f, -0.8f);
+glEnd();
+
+// dessous2
+glColor3f(0.8f, 0.8f, 0.7f); // BEIGE
+glBegin(GL_QUADS);
+    // Face 3
+    glVertex3f(-0.375f, 1.45f, 0.8f);   glVertex3f(-0.75f, 1.9f, 0.6f);   glVertex3f(-0.75f, 1.0f, 0.3f);  glVertex3f(-0.375f, 0.5f, 0.4f);
+    // Face 4
+    glVertex3f(-0.375f, 0.5f, 0.4f);    glVertex3f(-0.75f, 1.0f, 0.3f);   glVertex3f(-0.75f, 1.0f, -0.3f); glVertex3f(-0.375f, 0.5f, -0.4f);
+    // Face 5
+    glVertex3f(-0.375f, 0.5f, -0.4f);   glVertex3f(-0.75f, 1.0f, -0.3f);  glVertex3f(-0.75f, 1.9f, -0.6f); glVertex3f(-0.375f, 1.45f, -0.8f);
+glEnd();
+
+
+// dessus 3
+glColor3f(0.2f, 0.3f, 0.2f); // VERT
+glBegin(GL_QUADS);
+    // Face 1
+    glVertex3f(-0.75f, 2.8f, -0.6f); glVertex3f(-1.125f, 3.2f, -0.5f);  glVertex3f(-1.125f, 3.2f, 0.5f);   glVertex3f(-0.75f, 2.8f, 0.6f);
+    // Face 2
+    glVertex3f(-0.75f, 2.8f, 0.6f);  glVertex3f(-1.125f, 3.2f, 0.5f);   glVertex3f(-1.125f, 2.35f, 0.5f);  glVertex3f(-0.75f, 1.9f, 0.6f);
+    // Face 6
+    glVertex3f(-0.75f, 1.9f, -0.6f); glVertex3f(-1.125f, 2.35f, -0.5f); glVertex3f(-1.125f, 3.2f, -0.5f);  glVertex3f(-0.75f, 2.8f, -0.6f);
+glEnd();
+
+// dessous 3
+glColor3f(0.8f, 0.8f, 0.7f); // BEIGE
+glBegin(GL_QUADS);
+    // Face 3
+    glVertex3f(-0.75f, 1.9f, 0.6f);  glVertex3f(-1.125f, 2.35f, 0.5f);  glVertex3f(-1.125f, 1.5f, 0.25f);  glVertex3f(-0.75f, 1.0f, 0.3f);
+    // Face 4
+    glVertex3f(-0.75f, 1.0f, 0.3f);  glVertex3f(-1.125f, 1.5f, 0.25f);  glVertex3f(-1.125f, 1.5f, -0.25f); glVertex3f(-0.75f, 1.0f, -0.3f);
+    // Face 5
+    glVertex3f(-0.75f, 1.0f, -0.3f); glVertex3f(-1.125f, 1.5f, -0.25f); glVertex3f(-1.125f, 2.35f, -0.5f); glVertex3f(-0.75f, 1.9f, -0.6f);
+glEnd();
 }
