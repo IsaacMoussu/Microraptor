@@ -1,4 +1,3 @@
-
 #include "dino/fonctions.h"
 #ifdef __APPLE__
 #include <GLUT/glut.h>
@@ -63,7 +62,7 @@ void affichage()
   glRotatef(angley,1.0,0.0,0.0);
   glRotatef(anglex,0.0,1.0,0.0);
 
-    //Repère
+    //Repï¿½re
     //axe x en rouge
     glBegin(GL_LINES);
         glColor3f(1.0,0.0,0.0);
@@ -94,6 +93,9 @@ dessineCorps();
 dessineQueue();
 dessinePattesAvant();
 dessinePattesArriere();
+dessineTete();
+dessineCou();
+dessineAile();
 
 
 
@@ -320,14 +322,14 @@ void clavier(unsigned char touche,int x,int y)
       glDisable(GL_DEPTH_TEST);
       glutPostRedisplay();
       break;
-    case 'a'://Les faces à l'envers s'affichent en fil de fer
+    case 'a'://Les faces ï¿½ l'envers s'affichent en fil de fer
       glPolygonMode(GL_FRONT,GL_FILL);
       glPolygonMode(GL_FRONT,GL_LINE);
       glutPostRedisplay();
     break;
     case 'q' : /*la touche 'q' permet de quitter le programme */
       exit(0);
-    case 'z':// Dézoom
+    case 'z':// Dï¿½zoom
         if(zoom>-100)
           zoom -= 2 ;
           glutPostRedisplay();

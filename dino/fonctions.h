@@ -5,5 +5,8 @@ void dessineCorps();
 void dessineQueue();
 void dessinePattesArriere();
 void dessinePattesAvant();
+void dessineTete();
+void dessineCou();
+void dessineAile();
 
 #endif // FONCTIONS_H_INCLUDED
