@@ -17,6 +17,7 @@ void reshape(int x,int y);
 void idle();
 void mouse(int bouton,int etat,int x,int y);
 void mousemotion(int x,int y);
+void vSpecial(int key, int x, int y);
 
 int main(int argc,char **argv)
 {
@@ -37,6 +38,7 @@ int main(int argc,char **argv)
   /* enregistrement des fonctions de rappel */
   glutDisplayFunc(affichage);
   glutKeyboardFunc(clavier);
+  glutSpecialFunc(vSpecial);
   glutReshapeFunc(reshape);
   glutMouseFunc(mouse);
   glutMotionFunc(mousemotion);
@@ -142,11 +144,36 @@ void clavier(unsigned char touche,int x,int y)
           glutPostRedisplay();
     break;
     case 'Z':// Zoom
-        //if(zoom<5)
           zoom += 2 ;
           glutPostRedisplay();
     break;
     }
+}
+
+void vSpecial(int key, int x, int y)
+{
+	switch (key)
+	{
+		case GLUT_KEY_UP :
+			angley += 10;
+			glutPostRedisplay();
+			break;
+
+		case GLUT_KEY_DOWN :
+			angley -= 10;
+			glutPostRedisplay();
+			break;
+
+		case GLUT_KEY_LEFT :
+			anglex -= 10;
+			glutPostRedisplay();
+			break;
+
+		case GLUT_KEY_RIGHT :
+			anglex += 10;
+			glutPostRedisplay();
+			break;
+	}
 }
 
 void reshape(int x,int y)

@@ -9,7 +9,7 @@
 void dessineQueue(){
     //LA QUEUEEEEEE
     for(int i = 0; i < 5; i++){
-        glColor3f(0.2, 0.3, 0.2);//VERT
+        glColor3f(0.2, 0.4, 0.2);//VERT
         glPushMatrix();
             glTranslatef(11.5 + i*2.0, 1.6, 0.6);
             glRotatef(25, 0, -1.0, 0.0);
@@ -27,7 +27,7 @@ void dessineQueue(){
     }
 
     for(int i = 0; i < 5; i++){
-        glColor3f(0.2, 0.3, 0.2);//VERT
+        glColor3f(0.2, 0.4, 0.2);//VERT
         glPushMatrix();
             glTranslatef(11.5 + i*2.0, 1.6, -0.6);
             glRotatef(25, 0, 1.0, 0.0);
@@ -45,7 +45,7 @@ void dessineQueue(){
     }
 
     for(int i = 1; i < 3; i++){
-        glColor3f(0.2, 0.3, 0.2);//VERT
+        glColor3f(0.2, 0.4, 0.2);//VERT
         glPushMatrix();
             glTranslatef(21.5, 1.6, 0.8 * (i*i - i -1));
             glRotatef(10, 0, i - i*i + 1, 0.0);

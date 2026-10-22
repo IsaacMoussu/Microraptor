@@ -43,6 +43,8 @@
 		<Unit filename="corps.cpp" />
 		<Unit filename="cou.cpp" />
 		<Unit filename="fonctions.h" />
+		<Unit filename="mimineArriere.cpp" />
+		<Unit filename="mimineAvant.cpp" />
 		<Unit filename="pattesArriere.cpp" />
 		<Unit filename="pattesAvant.cpp" />
 		<Unit filename="queue.cpp" />

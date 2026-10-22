@@ -4,7 +4,7 @@
 	<GL/glut.h>
 	<cstdlib>
 
-1792589873 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
+1792662160 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
 	"dino/fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
@@ -18,7 +18,7 @@
 
 1792591017 c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\fonctions.h
 
-1792420144 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\queue.cpp
+1792616492 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\queue.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
@@ -54,7 +54,7 @@
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792590925 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\mimineavant.cpp
+1792616277 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\mimineavant.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
