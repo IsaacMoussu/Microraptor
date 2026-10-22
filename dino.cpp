@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 char presse;
-int anglex,angley,x,y,xold,yold;
+int anglex,angley = 20,x,y,xold,yold;
 float zoom = 0.0f;
 
 /* Prototype des fonctions */
@@ -18,6 +18,7 @@ void idle();
 void mouse(int bouton,int etat,int x,int y);
 void mousemotion(int x,int y);
 void vSpecial(int key, int x, int y);
+void initLight();
 
 int main(int argc,char **argv)
 {
@@ -57,7 +58,7 @@ void affichage()
 
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  glOrtho(-30.0f + zoom, 30.0f - zoom, -30.0f + zoom, 30.0f - zoom, -30.0f + zoom, 30.0f - zoom);
+  glOrtho(-100.0f + zoom, 100.0f - zoom, -100.0f + zoom, 100.0f - zoom, -100.0f + zoom, 100.0f - zoom);
 
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
@@ -90,7 +91,7 @@ void affichage()
     //glColor3f(0.35, 0.3, 0.3);MARRON
     //glColor3f(0.6, 0, 0);ROUGE
 
-
+initLight();
 dessineCorps();
 dessineQueue();
 dessinePattesAvant();
@@ -98,6 +99,7 @@ dessinePattesArriere();
 dessineTete();
 dessineCou();
 dessineAile();
+dessineMap();
 
 
 
@@ -106,6 +108,27 @@ dessineAile();
   //On echange les buffers
   glutSwapBuffers();
 }
+
+void initLight() {
+    // 1. Allumage du moteur d'éclairage et lissage
+    glEnable(GL_LIGHTING);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_NORMALIZE);
+    glShadeModel(GL_SMOOTH);
+    glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
+
+    GLfloat lumiere_ciel[] = {0.6, 0.6, 0.6, 1.0};
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lumiere_ciel);
+
+    glEnable(GL_LIGHT0);
+    GLfloat ambiante[] = { 0.2f, 0.2f, 0.2f, 1.0f };
+    GLfloat diffuse[]  = { 0.8f, 0.8f, 0.8f, 1.0f };
+
+    glLightfv(GL_LIGHT0, GL_AMBIENT, ambiante);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+}
+
+
 
 void clavier(unsigned char touche,int x,int y)
 {

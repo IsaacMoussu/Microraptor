@@ -10,5 +10,6 @@ void dessineCou();
 void dessineAile();
 void dessineMimineAvant(int i);
 void dessineMimineArriere(int i);
+void dessineMap();
 
 #endif // FONCTIONS_H_INCLUDED
