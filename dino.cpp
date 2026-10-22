@@ -8,7 +8,11 @@
 
 char presse;
 int anglex,angley = 20,x,y,xold,yold;
+int camx = 0, camy = 0;
 float zoom = 0.0f;
+int vitesseAnim = 1000;
+int frame = 0;
+int anim = 0;
 
 /* Prototype des fonctions */
 void affichage();
@@ -64,6 +68,7 @@ void affichage()
   glLoadIdentity();
   glRotatef(angley,1.0,0.0,0.0);
   glRotatef(anglex,0.0,1.0,0.0);
+  glTranslatef(camx, camy, 0.0);
 
     //Rep�re
     //axe x en rouge
@@ -91,15 +96,18 @@ void affichage()
     //glColor3f(0.35, 0.3, 0.3);MARRON
     //glColor3f(0.6, 0, 0);ROUGE
 
+
+
 initLight();
 dessineCorps();
-dessineQueue();
+dessineQueue(anim);
 dessinePattesAvant();
 dessinePattesArriere();
 dessineTete();
 dessineCou();
 dessineAile();
 dessineMap();
+animation();
 
 
 
@@ -126,6 +134,19 @@ void initLight() {
 
     glLightfv(GL_LIGHT0, GL_AMBIENT, ambiante);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+}
+
+void animation(){
+
+    frame++;
+    if(frame >= vitesseAnim){
+        frame = 0;
+        anim++;
+        if(anim >= 8)
+            anim = 0;
+    }
+
+    glutPostRedisplay();
 }
 
 
@@ -168,6 +189,14 @@ void clavier(unsigned char touche,int x,int y)
     break;
     case 'Z':// Zoom
           zoom += 2 ;
+          glutPostRedisplay();
+    break;
+     case 'b':// Zoom
+          camx += 2 ;
+          glutPostRedisplay();
+    break;
+     case 'n':// Zoom
+          camx -= 2 ;
           glutPostRedisplay();
     break;
     }
