@@ -1,9 +1,12 @@
 #ifndef FONCTIONS_H_INCLUDED
 #define FONCTIONS_H_INCLUDED
 
+void dessineRepere();
 void dessineCorps();
 void dessineQueue(int i);
-void dessinePattesArriere();
+void dessinePattesArriereGauche();
+void dessinePattesArriereDroite();
+void gestionPattesArriere(int anim, bool marche);
 void dessinePattesAvant();
 void dessineTete();
 void dessineCou();

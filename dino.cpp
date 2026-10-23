@@ -10,9 +10,10 @@ char presse;
 int anglex,angley = 20,x,y,xold,yold;
 int camx = 0, camy = 0;
 float zoom = 0.0f;
-int vitesseAnim = 1000;
+int vitesseAnim = 400;
 int frame = 0;
 int anim = 0;
+bool marche = false;
 
 /* Prototype des fonctions */
 void affichage();
@@ -70,44 +71,27 @@ void affichage()
   glRotatef(anglex,0.0,1.0,0.0);
   glTranslatef(camx, camy, 0.0);
 
-    //Rep�re
-    //axe x en rouge
-    glBegin(GL_LINES);
-        glColor3f(1.0,0.0,0.0);
-    	glVertex3f(0, 0,0.0);
-    	glVertex3f(1, 0,0.0);
-    glEnd();
-    //axe des y en vert
-    glBegin(GL_LINES);
-    	glColor3f(0.0,1.0,0.0);
-    	glVertex3f(0, 0,0.0);
-    	glVertex3f(0, 1,0.0);
-    glEnd();
-    //axe des z en bleu
-    glBegin(GL_LINES);
-    	glColor3f(0.0,0.0,1.0);
-    	glVertex3f(0, 0,0.0);
-    	glVertex3f(0, 0,1.0);
-    glEnd();
+    glEnable(GL_DEPTH_TEST);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    dessineRepere();
+    initLight();
+    dessineMap();
+
+
+    glPushMatrix();
+    glPopMatrix();
+    dessineCorps();
+    dessineQueue(anim);
+    dessinePattesAvant();
+    gestionPattesArriere(anim, marche);
+    dessineTete();
+    dessineCou();
+    dessineAile();
 
 
 
-    //glColor3f(0.8, 0.8, 0.7); BEIGE
-    //glColor3f(0.35, 0.3, 0.3);MARRON
-    //glColor3f(0.6, 0, 0);ROUGE
-
-
-
-initLight();
-dessineCorps();
-dessineQueue(anim);
-dessinePattesAvant();
-dessinePattesArriere();
-dessineTete();
-dessineCou();
-dessineAile();
-dessineMap();
-animation();
+    animation();
 
 
 
@@ -149,6 +133,28 @@ void animation(){
     glutPostRedisplay();
 }
 
+void dessineRepere(){
+
+    //Rep�re
+    //axe x en rouge
+    glBegin(GL_LINES);
+        glColor3f(1.0,0.0,0.0);
+    	glVertex3f(0, 0,0.0);
+    	glVertex3f(1, 0,0.0);
+    glEnd();
+    //axe des y en vert
+    glBegin(GL_LINES);
+    	glColor3f(0.0,1.0,0.0);
+    	glVertex3f(0, 0,0.0);
+    	glVertex3f(0, 1,0.0);
+    glEnd();
+    //axe des z en bleu
+    glBegin(GL_LINES);
+    	glColor3f(0.0,0.0,1.0);
+    	glVertex3f(0, 0,0.0);
+    	glVertex3f(0, 0,1.0);
+    glEnd();
+}
 
 
 void clavier(unsigned char touche,int x,int y)
@@ -191,12 +197,19 @@ void clavier(unsigned char touche,int x,int y)
           zoom += 2 ;
           glutPostRedisplay();
     break;
-     case 'b':// Zoom
+     case 'b':
           camx += 2 ;
           glutPostRedisplay();
     break;
-     case 'n':// Zoom
+     case 'n':
           camx -= 2 ;
+          glutPostRedisplay();
+    break;
+    case 'm':
+        if(marche)
+            marche = false;
+        else
+            marche = true;
           glutPostRedisplay();
     break;
     }
