@@ -4,13 +4,13 @@
 	<GL/glut.h>
 	<cstdlib>
 
-1792702887 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
+1792756167 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
 	"dino/fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792684271 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
+1792756416 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
@@ -18,7 +18,7 @@
 
 1792701480 c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\fonctions.h
 
-1792703154 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\queue.cpp
+1792756189 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\queue.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
@@ -72,31 +72,37 @@
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792699434 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau1.cpp
+1792742666 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau1.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792700064 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau2.cpp
+1792742728 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau2.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792697115 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau3.cpp
+1792742748 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau3.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792697130 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau4.cpp
+1792755325 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau4.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792696834 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau5..cpp
+1792756139 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau5..cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792756446 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau5.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>

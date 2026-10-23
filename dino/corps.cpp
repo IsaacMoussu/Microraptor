@@ -28,17 +28,6 @@ glBegin(GL_POLYGON);
     glVertex3f(0.0f, 2.0f,  1.0f);
 glEnd();
 
-glColor3f(0.35f, 0.3f, 0.3f); // MARRON
-// Bouchon X = 21
-glBegin(GL_POLYGON);
-    glVertex3f(21.0f, 2.0f, -0.4f);
-    glVertex3f(21.0f, 1.6f, -0.4f);
-    glVertex3f(21.0f, 1.2f, -0.2f);
-    glVertex3f(21.0f, 1.2f,  0.2f);
-    glVertex3f(21.0f, 1.6f,  0.4f);
-    glVertex3f(21.0f, 2.0f,  0.4f);
-glEnd();
-
 // ==========================================
 // 3. LE CORPS DU CYLINDRE
 // ==========================================
