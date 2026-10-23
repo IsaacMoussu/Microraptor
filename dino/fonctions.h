@@ -20,5 +20,7 @@ void dessineAnneau3();
 void dessineAnneau4();
 void dessineAnneau5();
 void animation();
+void dessineSapin();
+void dessineBuche();
 
 #endif // FONCTIONS_H_INCLUDED
