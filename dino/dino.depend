@@ -4,13 +4,13 @@
 	<GL/glut.h>
 	<cstdlib>
 
-1792768878 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
+1792776032 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
 	"dino/fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792769468 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
+1792769873 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>

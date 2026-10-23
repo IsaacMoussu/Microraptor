@@ -5,15 +5,20 @@
 #include <GL/freeglut.h>
 #endif
 #include <cstdlib>
+#include <stdio.h>
+#include <jpeglib.h>
+
 
 char presse;
 int anglex,angley = 20,x,y,xold,yold;
 int camx = 0, camy = 0;
 float zoom = 0.0f;
-int vitesseAnim = 400;
+int vitesseAnim = 300;
 int frame = 0;
 int anim = 0;
 bool marche = false;
+float posMarche = 0;
+float angleMarche = 0;
 
 /* Prototype des fonctions */
 void affichage();
@@ -78,17 +83,27 @@ void affichage()
     initLight();
     dessineMap();
 
+    if(marche)
+        posMarche -= 0.015;
+    if(marche)
+        angleMarche += 0.05;
+    if(angleMarche >= 360)
+        angleMarche -= 360;
 
     glPushMatrix();
+            glRotatef(angleMarche, 0, -1, 0);
+            glTranslatef(15.0, 0.0, 0.0);
+        glPushMatrix();
+            glRotatef(90, 0, 1, 0);
+            dessineCorps();
+            dessineQueue(anim);
+            dessinePattesAvant();
+            gestionPattesArriere(anim, marche);
+            dessineTete();
+            dessineCou();
+            dessineAile();
+        glPopMatrix();
     glPopMatrix();
-    dessineCorps();
-    dessineQueue(anim);
-    dessinePattesAvant();
-    gestionPattesArriere(anim, marche);
-    dessineTete();
-    dessineCou();
-    dessineAile();
-
 
 
     animation();
