@@ -8,9 +8,7 @@
 
 void dessineCorps(){
 
-// ==========================================
-// 2. LES DEUX BOUCHONS (Extr�mit�s)
-// ==========================================
+// 2 extrémités
 glColor3f(0.8f, 0.8f, 0.7f); //BEIGE
 // Bouchon X = 0
 glBegin(GL_POLYGON);
@@ -22,40 +20,31 @@ glBegin(GL_POLYGON);
     glVertex3f(0.0f, 2.0f,  1.0f);
 glEnd();
 
-// ==========================================
-// 3. LE CORPS DU CYLINDRE
-// ==========================================
+// CORPS
 
-// ------------------------------------------
-// TRON�ON 1 : De X = 0 � X = 6
-// ------------------------------------------
-// Le dessus du Tron�on 1
+// dessus troncon 1
 glColor3f(0.2f, 0.3f, 0.2f); // VERT
 glBegin(GL_QUADS);
-    // Face 1 (Sommet Plat Sup�rieur)
+    // Face 1 
     glVertex3f(0.0f, 2.0f, -1.0f);  glVertex3f(6.0f, 2.0f, -0.82f); glVertex3f(6.0f, 2.0f, 0.82f);  glVertex3f(0.0f, 2.0f, 1.0f);
-    // Face 2 (Bord vertical Z max)
+    // Face 2 
     glVertex3f(0.0f, 2.0f, 1.0f);   glVertex3f(6.0f, 2.0f, 0.82f);  glVertex3f(6.0f, 1.0f, 0.82f);  glVertex3f(0.0f, 1.0f, 1.0f);
-    // Face 6 (Bord vertical Z min)
+    // Face 6
     glVertex3f(0.0f, 1.0f, -1.0f);  glVertex3f(6.0f, 1.0f, -0.82f); glVertex3f(6.0f, 2.0f, -0.82f); glVertex3f(0.0f, 2.0f, -1.0f);
 glEnd();
 
-// Le dessous du Tron�on 1
+// dessous troncon 1
 glColor3f(0.8f, 0.8f, 0.7f);//BEIGE
 glBegin(GL_QUADS);
-    // Face 3 (Pente inf�rieure Z max)
+    // Face 3 
     glVertex3f(0.0f, 1.0f, 1.0f);   glVertex3f(6.0f, 1.0f, 0.82f);  glVertex3f(6.0f, 0.0f, 0.41f);  glVertex3f(0.0f, 0.0f, 0.5f);
-    // Face 4 (Fond Plat Inf�rieur)
+    // Face 4 
     glVertex3f(0.0f, 0.0f, 0.5f);   glVertex3f(6.0f, 0.0f, 0.41f);  glVertex3f(6.0f, 0.0f, -0.41f); glVertex3f(0.0f, 0.0f, -0.5f);
-    // Face 5 (Pente inf�rieure Z min)
+    // Face 5
     glVertex3f(0.0f, 0.0f, -0.5f);  glVertex3f(6.0f, 0.0f, -0.41f); glVertex3f(6.0f, 1.0f, -0.82f); glVertex3f(0.0f, 1.0f, -1.0f);
 glEnd();
 
-
-// ------------------------------------------
-// TRON�ON 2 : De X = 6 � X = 12
-// ------------------------------------------
-// Le dessus du Tron�on 2
+// dessus troncon 2
 glColor3f(0.2f, 0.3f, 0.2f); // VERT
 glBegin(GL_QUADS);
     // Face 1
@@ -66,7 +55,7 @@ glBegin(GL_QUADS);
     glVertex3f(6.0f, 1.0f, -0.82f); glVertex3f(12.0f, 1.6f, -0.64f); glVertex3f(12.0f, 2.0f, -0.64f); glVertex3f(6.0f, 2.0f, -0.82f);
 glEnd();
 
-// Le dessous du Tron�on 2
+// dessous troncon 2
 glColor3f(0.8f, 0.8f, 0.7f);//BEIGE
 glBegin(GL_QUADS);
     // Face 3
@@ -76,5 +65,22 @@ glBegin(GL_QUADS);
     // Face 5
     glVertex3f(6.0f, 0.0f, -0.41f); glVertex3f(12.0f, 1.2f, -0.36f); glVertex3f(12.0f, 1.6f, -0.64f); glVertex3f(6.0f, 1.0f, -0.82f);
 glEnd();
+
+
+// plumes corps
+for(int j = -1; j<2; j = j+2){
+
+    for(int i=0; i<12; i++){
+     glPushMatrix();
+     glRotatef(30 * j, 1, 0, 0);
+     glTranslatef( i+ 0.0, 1.3, 0.0-j);
+     glRotatef(-15, 0, 0, 1);
+     glScalef(1.0, 0.3, 1.5);                
+     glColor3f(0.2f, 0.3f, 0.2f); // VERT
+     glutSolidCube(1.0);
+     glPopMatrix();
+}
+}
+
 
 }
