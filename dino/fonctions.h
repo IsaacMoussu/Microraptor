@@ -25,5 +25,6 @@ void dessineBuche();
 void initPlume(float r, float g, float b);
 void dessineRangeesPlumes();
 void dessinePlume();
+void plumesLeLongDuBras(float L, float cote);
 
 #endif // FONCTIONS_H_INCLUDED
