@@ -48,6 +48,7 @@ void dessinePattesAvant(){
                 glColor3f(0.2f, 0.3f, 0.2f); // VERT
                 glutSolidCylinder(0.5, 4.0, 6.0, 10.0);
                 glTranslatef(0.0, 0.6, 0.0);
+                glScalef(1.5, 1.0, 1.0);
                 plumesLeLongDuBras(4.0, cote);
             glPopMatrix();
             glPushMatrix();
