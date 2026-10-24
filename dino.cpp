@@ -29,6 +29,7 @@ int main(int argc,char **argv)
   glutInitWindowPosition(0,0);
   glutInitWindowSize(1000,700);
   glutCreateWindow("dino");
+  initPlume(0.25f, 0.4f, 0.2f);
 
   /* Initialisation d'OpenGL */
   glClearColor(0.0,0.0,0.0,0.0);
@@ -100,6 +101,7 @@ dessineTete();
 dessineCou();
 dessineAile();
 dessineMap();
+dessineRangeesPlumes();
 
 
 

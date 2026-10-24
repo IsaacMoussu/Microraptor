@@ -11,5 +11,7 @@ void dessineAile();
 void dessineMimineAvant(int i);
 void dessineMimineArriere(int i);
 void dessineMap();
+void initPlume(float r, float g, float b);
+void dessineRangeesPlumes();
 
 #endif // FONCTIONS_H_INCLUDED
