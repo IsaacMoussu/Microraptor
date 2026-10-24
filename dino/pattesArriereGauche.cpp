@@ -16,7 +16,7 @@ void dessinePattesArriereGauche(){
                 glTranslatef(8, 1.0, -0.5);//z = 0.5 quand bras ouverts
                 glRotatef(20, 0, -1, 0);
                 glutSolidCylinder(0.5, 5.0, 6.0, 10.0);
-                glTranslatef(0.0, 0.6, 0.0);
+                glTranslatef(0.0, 0.6, -1.0);
                 glScalef(1.5, 1.0, 1.0);
                 plumesLeLongDuBras(5.0, 0.0);
             glPopMatrix();
@@ -24,8 +24,8 @@ void dessinePattesArriereGauche(){
                 glTranslatef(6.2, 1.0, 3.7);
                 glRotatef(-40, 0, -1, 0);
                 glutSolidCylinder(0.5, 5.0, 6.0, 10.0);
-                glTranslatef(0.0, 0.6, 0.0);
-               glRotatef(-20, 0, 1, 0);
+                glTranslatef(1.0, 0.6, 0.3);
+               glRotatef(-30, 0, 1, 0);
                plumesLeLongDuBras(5.0, 0.0);
             glPopMatrix();
             glColor3f(0.35f, 0.3f, 0.3f); // MARRON

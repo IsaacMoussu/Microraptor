@@ -15,7 +15,7 @@ void plumesLeLongDuBras(float L, float cote)
         glPushMatrix();
             glRotatef(cote, 0, 0, 1);                    // cote du bras (0 ou 180)
             glTranslatef(0.5, 0.0, L * (k + 0.5) / N);   // bord du cylindre
-            glRotatef(-7.0 * k, 0, 1, 0);                 // éventail, plus vers l'exterieur au bout 
+            glRotatef(-9.0 * k, 0, 1, 0);                 // éventail, plus vers l'exterieur au bout 
             glTranslatef(1.0, 0.0, 0.0);                 // la premire plume commence au bord
             glScalef(1.0, 0.1, 0.3);                     // longueur épaisseur et largeur
             glColor3f(0.35, 0.3, 0.3); // MARRON
