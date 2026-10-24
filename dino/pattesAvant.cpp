@@ -15,7 +15,7 @@ void plumesLeLongDuBras(float L, float cote)
         glPushMatrix();
             glRotatef(cote, 0, 0, 1);                    // cote du bras (0 ou 180)
             glTranslatef(0.5, 0.0, L * (k + 0.5) / N);   // bord du cylindre
-            glRotatef(-5.0 * k, 0, 1, 0);                 // éventail, plus vers l'exterieur au bout 
+            glRotatef(-7.0 * k, 0, 1, 0);                 // éventail, plus vers l'exterieur au bout 
             glTranslatef(1.0, 0.0, 0.0);                 // la premire plume commence au bord
             glScalef(1.0, 0.1, 0.3);                     // longueur épaisseur et largeur
             glColor3f(0.35, 0.3, 0.3); // MARRON
@@ -47,6 +47,7 @@ void dessinePattesAvant(){
                 glRotatef(-90 + 70 * i, 0, -1, 0);
                 glColor3f(0.2f, 0.3f, 0.2f); // VERT
                 glutSolidCylinder(0.5, 4.0, 6.0, 10.0);
+                glTranslatef(0.0, 0.6, 0.0);
                 plumesLeLongDuBras(4.0, cote);
             glPopMatrix();
             glPushMatrix();
@@ -54,6 +55,8 @@ void dessinePattesAvant(){
                 glRotatef(90 - 50 * i, 0, -1, 0);
                 glColor3f(0.2f, 0.3f, 0.2f); // VERT
                 glutSolidCylinder(0.5, 4.0, 6.0, 10.0);
+                glTranslatef(0.0, 0.6, 0.0);
+                glScalef(1.5, 1.0, 2.0);
                 plumesLeLongDuBras(4.0, cote);
             glPopMatrix();
 
