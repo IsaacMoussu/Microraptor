@@ -24,5 +24,6 @@ void dessineSapin();
 void dessineBuche();
 void initPlume(float r, float g, float b);
 void dessineRangeesPlumes();
+void dessinePlume();
 
 #endif // FONCTIONS_H_INCLUDED

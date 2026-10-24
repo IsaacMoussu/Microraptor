@@ -99,7 +99,7 @@ void affichage()
             dessineTete();
             dessineCou();
             dessineAile();
-            dessineRangeesPlumes();
+            // dessineRangeesPlumes();
 
     glPopMatrix();
 

@@ -78,8 +78,6 @@ void dessinePlume()
             // t0 = j * PAS_T;
             // t1 = (j+1) * PAS_T;
 
-            glColor3f(pSphere[a].r, pSphere[a].g, pSphere[a].b);
-
             glBegin(GL_POLYGON);
             // glTexCoord2f(s0,t0);
             glVertex3f(pSphere[a].x, pSphere[a].y, pSphere[a].z);
@@ -93,7 +91,7 @@ void dessinePlume()
         }
 }
 
-void dessineRangeesPlumes()
+/*void dessineRangeesPlumes()
 {
     for (int i = 0; i < 15; i++)
     {
@@ -109,4 +107,4 @@ void dessineRangeesPlumes()
         glPopMatrix();
         glPopMatrix();
     }
-}
+}*/
