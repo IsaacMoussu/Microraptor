@@ -98,8 +98,6 @@ void affichage()
             gestionPattesArriere(anim, marche);
             dessineTete();
             dessineCou();
-            dessineAile();
-            // dessineRangeesPlumes();
 
     glPopMatrix();
 
