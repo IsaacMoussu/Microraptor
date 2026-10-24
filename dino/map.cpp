@@ -15,4 +15,40 @@ void dessineMap(){
         glutSolidCube(1.0);
     glPopMatrix();
 
+
+    glPushMatrix();
+        glTranslatef(-30.0, 0.0, -35.0);
+        dessineSapin();
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(-10.0, 0.0, -40.0);
+        dessineSapin();
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(-20.0, 0.0, -55.0);
+        dessineSapin();
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(30.0, 0.0, -45.0);
+        dessineSapin();
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(60.0, 0.0, -65.0);
+        dessineSapin();
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(10.0, 0.0, -60.0);
+        dessineSapin();
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(55.0, 0.0, -20.0);
+        dessineSapin();
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(-55.0, 0.0, -70.0);
+        glRotatef(45, 0, -1, 0);
+        dessineBuche();
+    glPopMatrix();
+
+
 }

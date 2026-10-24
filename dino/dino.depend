@@ -4,27 +4,29 @@
 	<GL/glut.h>
 	<cstdlib>
 
-1792681503 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
+1792792329 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
 	"dino/fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
+	<stdio.h>
+	<jpeglib.h>
 
-1792615876 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
+1792769873 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792662517 c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\fonctions.h
+1792793064 c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\fonctions.h
 
-1792616492 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\queue.cpp
+1792756978 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\queue.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792616093 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesarriere.cpp
+1792681715 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesarriere.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
@@ -66,7 +68,85 @@
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792672126 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\map.cpp
+1792793154 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\map.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792742666 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau1.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792742728 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau2.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792742748 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau3.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792755325 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau4.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792756139 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau5..cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792756446 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\anneau5.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792766927 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesarrieregauche.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792766912 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesarrieredroite.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792767277 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\gestionpattesarriere.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1697055104 c:\libjpeg-turbo-gcc64\include\jpeglib.h
+	"jconfig.h"
+	"jmorecfg.h"
+	"jpegint.h"
+	"jerror.h"
+
+1697478258 c:\libjpeg-turbo-gcc64\include\jconfig.h
+
+1697055104 c:\libjpeg-turbo-gcc64\include\jmorecfg.h
+
+1697055104 c:\libjpeg-turbo-gcc64\include\jerror.h
+
+1792792588 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\sapin.cpp
+	"fonctions.h"
+	<GLUT/glut.h>
+	<GL/freeglut.h>
+	<cstdlib>
+
+1792793650 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\buche.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>

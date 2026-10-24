@@ -40,9 +40,15 @@
 		</Linker>
 		<Unit filename="../dino.cpp" />
 		<Unit filename="aile.cpp" />
+		<Unit filename="anneau1.cpp" />
+		<Unit filename="anneau2.cpp" />
+		<Unit filename="anneau3.cpp" />
+		<Unit filename="anneau4.cpp" />
+		<Unit filename="anneau5..cpp" />
 		<Unit filename="corps.cpp" />
 		<Unit filename="cou.cpp" />
 		<Unit filename="fonctions.h" />
+		<Unit filename="map.cpp" />
 		<Unit filename="mimineArriere.cpp" />
 		<Unit filename="mimineAvant.cpp" />
 		<Unit filename="pattesArriere.cpp" />

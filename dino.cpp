@@ -5,10 +5,19 @@
 #include <GL/freeglut.h>
 #endif
 #include <cstdlib>
+#include <stdio.h>
+#include <jpeglib.h>
+
 
 char presse;
 int anglex,angley = 20,x,y,xold,yold;
+int camx = 0, camy = 0;
 float zoom = 0.0f;
+int vitesseAnim = 300;
+int frame = 0;
+int anim = 0;
+bool marche = false;
+float angleMarche = 0;
 
 /* Prototype des fonctions */
 void affichage();
@@ -65,26 +74,34 @@ void affichage()
   glLoadIdentity();
   glRotatef(angley,1.0,0.0,0.0);
   glRotatef(anglex,0.0,1.0,0.0);
+  glTranslatef(camx, camy, 0.0);
 
-    //Rep�re
-    //axe x en rouge
-    glBegin(GL_LINES);
-        glColor3f(1.0,0.0,0.0);
-    	glVertex3f(0, 0,0.0);
-    	glVertex3f(1, 0,0.0);
-    glEnd();
-    //axe des y en vert
-    glBegin(GL_LINES);
-    	glColor3f(0.0,1.0,0.0);
-    	glVertex3f(0, 0,0.0);
-    	glVertex3f(0, 1,0.0);
-    glEnd();
-    //axe des z en bleu
-    glBegin(GL_LINES);
-    	glColor3f(0.0,0.0,1.0);
-    	glVertex3f(0, 0,0.0);
-    	glVertex3f(0, 0,1.0);
-    glEnd();
+    glEnable(GL_DEPTH_TEST);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    dessineRepere();
+    initLight();
+    dessineMap();
+
+    if(marche)
+        angleMarche += 0.05;
+    if(angleMarche >= 360)
+        angleMarche -= 360;
+
+    glPushMatrix();
+            glRotatef(angleMarche, 0, -1, 0);
+            glTranslatef(0.0, 0.0, 15.0);
+
+            dessineCorps();
+            dessineQueue(anim);
+            dessinePattesAvant();
+            gestionPattesArriere(anim, marche);
+            dessineTete();
+            dessineCou();
+            dessineAile();
+            dessineRangeesPlumes();
+
+    glPopMatrix();
 
 
 
@@ -92,16 +109,8 @@ void affichage()
     //glColor3f(0.35, 0.3, 0.3);MARRON
     //glColor3f(0.6, 0, 0);ROUGE
 
-initLight();
-dessineCorps();
-dessineQueue();
-dessinePattesAvant();
-dessinePattesArriere();
-dessineTete();
-dessineCou();
-dessineAile();
 dessineMap();
-dessineRangeesPlumes();
+    animation();
 
 
 
@@ -130,6 +139,41 @@ void initLight() {
     glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
 }
 
+void animation(){
+
+    frame++;
+    if(frame >= vitesseAnim){
+        frame = 0;
+        anim++;
+        if(anim >= 8)
+            anim = 0;
+    }
+
+    glutPostRedisplay();
+}
+
+void dessineRepere(){
+
+    //Rep�re
+    //axe x en rouge
+    glBegin(GL_LINES);
+        glColor3f(1.0,0.0,0.0);
+    	glVertex3f(0, 0,0.0);
+    	glVertex3f(1, 0,0.0);
+    glEnd();
+    //axe des y en vert
+    glBegin(GL_LINES);
+    	glColor3f(0.0,1.0,0.0);
+    	glVertex3f(0, 0,0.0);
+    	glVertex3f(0, 1,0.0);
+    glEnd();
+    //axe des z en bleu
+    glBegin(GL_LINES);
+    	glColor3f(0.0,0.0,1.0);
+    	glVertex3f(0, 0,0.0);
+    	glVertex3f(0, 0,1.0);
+    glEnd();
+}
 
 
 void clavier(unsigned char touche,int x,int y)
@@ -170,6 +214,21 @@ void clavier(unsigned char touche,int x,int y)
     break;
     case 'Z':// Zoom
           zoom += 2 ;
+          glutPostRedisplay();
+    break;
+     case 'b':
+          camx += 2 ;
+          glutPostRedisplay();
+    break;
+     case 'n':
+          camx -= 2 ;
+          glutPostRedisplay();
+    break;
+    case 'm':
+        if(marche)
+            marche = false;
+        else
+            marche = true;
           glutPostRedisplay();
     break;
     }

@@ -1,0 +1,29 @@
+#include "fonctions.h"
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/freeglut.h>
+#endif
+#include <cstdlib>
+
+void gestionPattesArriere(int anim, bool marche){
+
+    int motif1[] = {0, 1, 2, 1, 0, -1, -2, -1};
+    int motif2[] = {0, -1, -2, -1, 0, 1, 2, 1};
+
+    glPushMatrix();
+        glTranslatef(8.0, 0.0, 0.0);
+        if(marche)
+            glRotatef(10 * motif1[anim], 0, 0, 1);
+        dessinePattesArriereGauche();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(8.0, 0.0, 0.0);
+        if(marche)
+            glRotatef(10 * motif2[anim], 0, 0, 1);
+        dessinePattesArriereDroite();
+    glPopMatrix();
+
+
+}
