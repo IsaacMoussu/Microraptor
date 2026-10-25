@@ -14,13 +14,15 @@
 	<cstdio>
 	<jerror.h>
 
-1792849316 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
+1792942997 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792885396 c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\fonctions.h
+1792942997 c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\fonctions.h
+	<OpenGL/gl.h>
+	<GL/gl.h>
 
 1792756978 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\queue.cpp
 	"fonctions.h"

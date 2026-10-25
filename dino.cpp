@@ -6,7 +6,6 @@
 #endif
 #include <cstdlib>
 #include <stdio.h>
-#include <jpeglib.h>
 
 // lib pour jpeg et texture
 #include <cstdio>
@@ -16,11 +15,18 @@
 const int LARGEUR = 1408;
 const int HAUTEUR = 768;
 
+const int LARGEUR_ECAILLE = 1028;
+const int HAUTEUR_ECAILLE = 1024;
+
 //crea de tableau (comme au TD3)
 unsigned char image[LARGEUR*HAUTEUR*3];
 unsigned char texture[HAUTEUR][LARGEUR][3];
 
 void loadJpegImage(char *fichier);
+
+unsigned char imageEcaille[LARGEUR_ECAILLE*HAUTEUR_ECAILLE*3];
+unsigned char textureEcaille[HAUTEUR_ECAILLE][LARGEUR_ECAILLE][3];
+
 
 char presse;
 int anglex,angley = 20,x,y,xold,yold;
@@ -44,6 +50,8 @@ void mouse(int bouton,int etat,int x,int y);
 void mousemotion(int x,int y);
 void vSpecial(int key, int x, int y);
 void initLight();
+void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur);
+GLuint texObject[2]; //objet texture (voir cours slide 22)
 
 int main(int argc,char **argv)
 {
@@ -56,8 +64,13 @@ int main(int argc,char **argv)
   glutCreateWindow("dino");
   initPlume(0.25f, 0.4f, 0.2f);
 
-  //TEXTURE
-  //loadJpegImage("./plume.jpg");
+
+// TEXTURE PLUME
+loadJpegImage("./plume.jpg", image, LARGEUR, HAUTEUR);
+
+// TEXTURE ECAILLE
+loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
+
 
   // image dans texture  (TD3)
   for (int i=0;i<HAUTEUR;i++)
@@ -66,11 +79,32 @@ int main(int argc,char **argv)
       texture[i][j][1]=image[i*LARGEUR*3+j*3+1];
       texture[i][j][2]=image[i*LARGEUR*3+j*3+2]; }
 
-  // Paramettrage des textures
-  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
-  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-  glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,LARGEUR,HAUTEUR,0,
-	       GL_RGB,GL_UNSIGNED_BYTE,texture);
+  // image ecaille dans textureEcaille
+for (int i = 0; i < HAUTEUR_ECAILLE; i++)
+    for (int j = 0; j < LARGEUR_ECAILLE; j++) {
+        textureEcaille[i][j][0] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3];
+        textureEcaille[i][j][1] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3 + 1];
+        textureEcaille[i][j][2] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3 + 2];
+    }
+
+
+  // genere les 2 objt de texture
+glGenTextures(2, texObject);
+
+// plume
+glBindTexture(GL_TEXTURE_2D, texObject[0]);
+
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, LARGEUR, HAUTEUR, 0, GL_RGB, GL_UNSIGNED_BYTE, texture);
+
+// ecaille
+glBindTexture(GL_TEXTURE_2D, texObject[1]);
+
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, LARGEUR_ECAILLE, HAUTEUR_ECAILLE, 0, GL_RGB, GL_UNSIGNED_BYTE, textureEcaille);
+
 
   /* Initialisation d'OpenGL */
   glClearColor(0.0,0.0,0.0,0.0);
@@ -123,7 +157,7 @@ void affichage()
             glRotatef(angleMarche, 0, -1, 0);
             glTranslatef(0.0, 0.0, 15.0);
 
-            dessineCorps();
+            dessineCorps(texObject);
             dessineQueue(anim1);
             dessinePattesAvant();
             gestionPattesArriere(anim2, marche);
@@ -341,7 +375,7 @@ void mousemotion(int x,int y)
 
   // extrait de jpegtex.cpp pour load la texture
 
-  void loadJpegImage(char *fichier)
+  void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur) // vu qu'on a 2 textures, il faut le traiter pour chacune d'entre elle d'ou les parametres supplementaires
 {
   struct jpeg_decompress_struct cinfo;
   struct jpeg_error_mgr jerr;
@@ -358,8 +392,8 @@ void mousemotion(int x,int y)
   jpeg_stdio_src(&cinfo, file);
   jpeg_read_header(&cinfo, TRUE);
 
-  if ((cinfo.image_width != LARGEUR) || (cinfo.image_height != HAUTEUR)) {
-    fprintf(stderr,"Erreur : l'image doit etre de taille %dx%d\n", LARGEUR, HAUTEUR);
+  if ((cinfo.image_width != largeur) || (cinfo.image_height != hauteur)) {
+    fprintf(stderr,"Erreur : l'image doit etre de taille %dx%d\n", largeur, hauteur);
     exit(1);
   }
   if (cinfo.jpeg_color_space == JCS_GRAYSCALE) {
@@ -370,7 +404,7 @@ void mousemotion(int x,int y)
   jpeg_start_decompress(&cinfo);
   while (cinfo.output_scanline < cinfo.output_height)
   {
-    ligne = image + 3*LARGEUR*cinfo.output_scanline;
+    ligne = image + 3*largeur*cinfo.output_scanline;
     jpeg_read_scanlines(&cinfo, &ligne, 1);
   }
   jpeg_finish_decompress(&cinfo);

@@ -25,6 +25,7 @@ void dessinePattesArriereDroite(int anim, bool marche){
         glRotatef(-70, 1, 0, 0);
         glPushMatrix();
             glTranslatef(8, 1.0, 0.5);//z = 0.5 quand bras ouverts
+
             glRotatef(160, 0, -1, 0);
             if(marche)
                 glRotatef(-10 * motif[anim], 0, -1, 0);
