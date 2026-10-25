@@ -65,6 +65,9 @@ void dessinePlume()
     const float PAS_S = 1.0 / NM; // pour eviter de faire une conversion dans le calcul
     const float PAS_T = 1.0 / NP; // pour eviter de faire une conversion dans le calcul
 
+    glEnable(GL_TEXTURE_2D);   // active texture
+    glColor3f(1.0f, 1.0f, 1.0f);   // blanc car sinon couleur fois texture = moche
+
     for (i = 0; i < NM; i++)
         for (j = 0; j < NP; j++)
         {
@@ -73,38 +76,20 @@ void dessinePlume()
             c = fSphere[i][j][2];
             d = fSphere[i][j][3];
 
-            // s0 = i * PAS_S;
-            // s1 = (i+1) * PAS_S;
-            // t0 = j * PAS_T;
-            // t1 = (j+1) * PAS_T;
-
+            s0 = i * PAS_S;
+            s1 = (i+1) * PAS_S;
+            t0 = j * PAS_T;
+            t1 = (j+1) * PAS_T;
             glBegin(GL_POLYGON);
-            // glTexCoord2f(s0,t0);
+            glTexCoord2f(s0,t0);
             glVertex3f(pSphere[a].x, pSphere[a].y, pSphere[a].z);
-            // glTexCoord2f(s1,t0);
+            glTexCoord2f(s1,t0);
             glVertex3f(pSphere[b].x, pSphere[b].y, pSphere[b].z);
-            // glTexCoord2f(s1,t1);
+            glTexCoord2f(s1,t1);
             glVertex3f(pSphere[c].x, pSphere[c].y, pSphere[c].z);
-            // glTexCoord2f(s0,t1);
+            glTexCoord2f(s0,t1);
             glVertex3f(pSphere[d].x, pSphere[d].y, pSphere[d].z);
             glEnd();
         }
+    glDisable(GL_TEXTURE_2D);  // desactive texture sinon le reste serait texturer aussi
 }
-
-/*void dessineRangeesPlumes()
-{
-    for (int i = 0; i < 15; i++)
-    {
-        glPushMatrix();
-        glTranslatef(i * 2.0f, 0.0f, 0.0f);
-        if (i >= 7)
-            glTranslatef(3.0f, 0.0f, 0.0f);
-        glRotatef(i * 4.0f, 0.0f, 0.0f, 10.0f);
-
-        glPushMatrix();
-        glScalef(3.0f, 1.0f, 1.0f);
-        dessinePlume();
-        glPopMatrix();
-        glPopMatrix();
-    }
-}*/

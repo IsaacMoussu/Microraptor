@@ -8,6 +8,20 @@
 #include <stdio.h>
 #include <jpeglib.h>
 
+// lib pour jpeg et texture
+#include <cstdio> 
+#include <jpeglib.h>
+#include <jerror.h>
+
+//taille image texture ecaille
+const int LARGEUR = 1408;
+const int HAUTEUR = 768;
+
+//crea de tableau (comme au TD3)
+unsigned char image[LARGEUR*HAUTEUR*3];
+unsigned char texture[HAUTEUR][LARGEUR][3];
+
+void loadJpegImage(char *fichier);   
 
 char presse;
 int anglex,angley = 20,x,y,xold,yold;
@@ -42,6 +56,22 @@ int main(int argc,char **argv)
   glutInitWindowSize(1000,700);
   glutCreateWindow("dino");
   initPlume(0.25f, 0.4f, 0.2f);
+
+  //TEXTURE
+  loadJpegImage("./plume.jpg");
+
+  // image dans texture  (TD3)
+  for (int i=0;i<HAUTEUR;i++)
+    for (int j=0;j<LARGEUR;j++) {
+      texture[i][j][0]=image[i*LARGEUR*3+j*3];
+      texture[i][j][1]=image[i*LARGEUR*3+j*3+1];
+      texture[i][j][2]=image[i*LARGEUR*3+j*3+2]; }
+
+  // Paramettrage des textures 
+  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+  glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,LARGEUR,HAUTEUR,0,
+	       GL_RGB,GL_UNSIGNED_BYTE,texture);
 
   /* Initialisation d'OpenGL */
   glClearColor(0.0,0.0,0.0,0.0);
@@ -311,3 +341,42 @@ void mousemotion(int x,int y)
     xold=x; /* sauvegarde des valeurs courante de le position de la souris */
     yold=y;
   }
+
+  // extrait de jpegtex.cpp pour load la texture
+
+  void loadJpegImage(char *fichier)
+{
+  struct jpeg_decompress_struct cinfo;
+  struct jpeg_error_mgr jerr;
+  FILE *file;
+  unsigned char *ligne;
+
+  cinfo.err = jpeg_std_error(&jerr);
+  jpeg_create_decompress(&cinfo);
+  if ((file = fopen(fichier,"rb")) == 0)
+  {
+    fprintf(stderr,"Erreur : impossible d'ouvrir le fichier %s\n", fichier);
+    exit(1);
+  }
+  jpeg_stdio_src(&cinfo, file);
+  jpeg_read_header(&cinfo, TRUE);
+
+  if ((cinfo.image_width != LARGEUR) || (cinfo.image_height != HAUTEUR)) {
+    fprintf(stderr,"Erreur : l'image doit etre de taille %dx%d\n", LARGEUR, HAUTEUR);
+    exit(1);
+  }
+  if (cinfo.jpeg_color_space == JCS_GRAYSCALE) {
+    fprintf(stderr,"Erreur : l'image doit etre de type RGB\n");
+    exit(1);
+  }
+
+  jpeg_start_decompress(&cinfo);
+  while (cinfo.output_scanline < cinfo.output_height)
+  {
+    ligne = image + 3*LARGEUR*cinfo.output_scanline;
+    jpeg_read_scanlines(&cinfo, &ligne, 1);
+  }
+  jpeg_finish_decompress(&cinfo);
+  jpeg_destroy_decompress(&cinfo);
+  fclose(file);
+}
