@@ -34,13 +34,14 @@ int anglex,angley = 20,x,y,xold,yold;
 int camx = 0, camy = 0;
 float zoom = 0.0f;
 int vitesseAnim1 = 100;
-int vitesseAnim2 = 800;
+int vitesseAnim2 = 85;
 int frame1 = 0;
 int frame2 = 0;
 int anim1 = 0;
 int anim2 = 0;
 bool marche = false;
 float angleMarche = 0;
+float motif[] = {0.0, -0.3, 1.5, 1.0, 0.0, -0.3, 1.5, 1.0};
 
 /* Prototype des fonctions */
 void affichage();
@@ -67,10 +68,10 @@ int main(int argc,char **argv)
 
 
 // TEXTURE PLUME
-loadJpegImage("./plume.jpg", image, LARGEUR, HAUTEUR);
+//loadJpegImage("./plume.jpg", image, LARGEUR, HAUTEUR);
 
 // TEXTURE ECAILLE
-loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
+//loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
 
 
   // image dans texture  (TD3)
@@ -150,13 +151,15 @@ void affichage()
     dessineMap();
 
     if(marche)
-        angleMarche += 0.0;
+        angleMarche += 0.1;
     if(angleMarche >= 360)
         angleMarche -= 360;
 
     glPushMatrix();
             glRotatef(angleMarche, 0, -1, 0);
-            glTranslatef(0.0, 0.0, 15.0);
+            glTranslatef(0.0, 0.0, 25.0);
+            if(marche)
+                glTranslatef(0.0, motif[anim2], 0.0);
 
             dessineCorps(texObject);
             dessineQueue(anim1);
@@ -375,7 +378,7 @@ void mousemotion(int x,int y)
   }
 
   // extrait de jpegtex.cpp pour load la texture
-
+/*
   void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur) // vu qu'on a 2 textures, il faut le traiter pour chacune d'entre elle d'ou les parametres supplementaires
 {
   struct jpeg_decompress_struct cinfo;
@@ -411,4 +414,4 @@ void mousemotion(int x,int y)
   jpeg_finish_decompress(&cinfo);
   jpeg_destroy_decompress(&cinfo);
   fclose(file);
-}
+}*/
