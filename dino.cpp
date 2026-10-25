@@ -8,6 +8,7 @@
 #include <stdio.h>
 
 // lib pour jpeg et texture
+#include <jpeglib.h>
 #include <cstdio>
 #include <jerror.h>
 
