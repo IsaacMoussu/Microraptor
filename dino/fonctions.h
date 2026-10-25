@@ -1,8 +1,14 @@
 #ifndef FONCTIONS_H_INCLUDED
 #define FONCTIONS_H_INCLUDED
 
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
+#include <GL/gl.h>
+#endif
+
 void dessineRepere();
-void dessineCorps();
+void dessineCorps(GLuint texObject[]); // param pour le tableau de texture 
 void dessineQueue(int i);
 void dessinePattesArriereGauche(int anim, bool marche);
 void dessinePattesArriereDroite(int anim, bool marche);
