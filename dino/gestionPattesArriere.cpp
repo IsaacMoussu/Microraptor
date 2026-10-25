@@ -8,8 +8,8 @@
 
 void gestionPattesArriere(int anim, bool marche){
 
-    int motif1[] = {0, 1, 2, 1, 0, -1, -2, -1};
-    int motif2[] = {0, -1, -2, -1, 0, 1, 2, 1};
+    float motif1[] = {0, 1.5, 3, 1.5, 0, -1, -2, -1};
+    float motif2[] = {0, -1, -2, -1, 0, 1.5, 3, 1.5};
 
     glPushMatrix();
         glTranslatef(8.0, 0.0, 0.0);

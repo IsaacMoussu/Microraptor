@@ -4,13 +4,15 @@
 	<GL/glut.h>
 	<cstdlib>
 
-1792885067 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
+1792940414 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino.cpp
 	"dino/fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 	<stdio.h>
 	<jpeglib.h>
+	<cstdio>
+	<jerror.h>
 
 1792849316 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\corps.cpp
 	"fonctions.h"
@@ -110,19 +112,19 @@
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792885001 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesarrieregauche.cpp
+1792942443 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesarrieregauche.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792882931 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesarrieredroite.cpp
+1792942021 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\pattesarrieredroite.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792885401 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\gestionpattesarriere.cpp
+1792933970 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\gestionpattesarriere.cpp
 	"fonctions.h"
 	<GLUT/glut.h>
 	<GL/freeglut.h>
@@ -152,7 +154,7 @@
 	<GL/freeglut.h>
 	<cstdlib>
 
-1792838328 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\plume.cpp
+1792929461 source:c:\users\isaac\onedrive\documents\info\projet\l3\syntheseimage\dino\plume.cpp
 	<GLUT/glut.h>
 	<GL/freeglut.h>
 	<cstdlib>

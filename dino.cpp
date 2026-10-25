@@ -9,8 +9,7 @@
 #include <jpeglib.h>
 
 // lib pour jpeg et texture
-#include <cstdio> 
-#include <jpeglib.h>
+#include <cstdio>
 #include <jerror.h>
 
 //taille image texture ecaille
@@ -21,14 +20,14 @@ const int HAUTEUR = 768;
 unsigned char image[LARGEUR*HAUTEUR*3];
 unsigned char texture[HAUTEUR][LARGEUR][3];
 
-void loadJpegImage(char *fichier);   
+void loadJpegImage(char *fichier);
 
 char presse;
 int anglex,angley = 20,x,y,xold,yold;
 int camx = 0, camy = 0;
 float zoom = 0.0f;
 int vitesseAnim1 = 100;
-int vitesseAnim2 = 100;
+int vitesseAnim2 = 800;
 int frame1 = 0;
 int frame2 = 0;
 int anim1 = 0;
@@ -58,7 +57,7 @@ int main(int argc,char **argv)
   initPlume(0.25f, 0.4f, 0.2f);
 
   //TEXTURE
-  loadJpegImage("./plume.jpg");
+  //loadJpegImage("./plume.jpg");
 
   // image dans texture  (TD3)
   for (int i=0;i<HAUTEUR;i++)
@@ -67,7 +66,7 @@ int main(int argc,char **argv)
       texture[i][j][1]=image[i*LARGEUR*3+j*3+1];
       texture[i][j][2]=image[i*LARGEUR*3+j*3+2]; }
 
-  // Paramettrage des textures 
+  // Paramettrage des textures
   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
   glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,LARGEUR,HAUTEUR,0,
@@ -94,7 +93,6 @@ int main(int argc,char **argv)
 
 void affichage()
 {
-  int i,j;
   /* effacement de l'image avec la couleur de fond */
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glShadeModel(GL_SMOOTH);
@@ -117,7 +115,7 @@ void affichage()
     dessineMap();
 
     if(marche)
-        angleMarche += 0.05;
+        angleMarche += 0.0;
     if(angleMarche >= 360)
         angleMarche -= 360;
 
@@ -159,15 +157,14 @@ void initLight() {
     glShadeModel(GL_SMOOTH);
     glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
 
-    GLfloat lumiere_ciel[] = {0.6, 0.6, 0.6, 1.0};
+    GLfloat lumiere_ciel[] = {0.6, 0.6, 0.6, 0.6};
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lumiere_ciel);
 
-    glEnable(GL_LIGHT0);
-    GLfloat ambiante[] = { 0.2f, 0.2f, 0.2f, 1.0f };
-    GLfloat diffuse[]  = { 0.8f, 0.8f, 0.8f, 1.0f };
-
+    GLfloat ambiante[] = { 0.3f, 0.3f, 0.3f, 0.0f };
+    GLfloat diffuse[]  = { 1.5f, 0.8f, 0.6f, 1.0f };
     glLightfv(GL_LIGHT0, GL_AMBIENT, ambiante);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+    glEnable(GL_LIGHT0);
 }
 
 void animation1(){
@@ -253,8 +250,8 @@ void clavier(unsigned char touche,int x,int y)
       exit(0);
     case 'z':// D�zoom
         if(zoom>-100)
-          zoom -= 2 ;
-          glutPostRedisplay();
+            zoom -= 2 ;
+        glutPostRedisplay();
     break;
     case 'Z':// Zoom
           zoom += 2 ;
