@@ -32,11 +32,13 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add directory="../../../../../../../../../libjpeg-turbo-gcc64/include" />
 		</Compiler>
 		<Linker>
 			<Add library="freeglut" />
 			<Add library="glu32" />
 			<Add library="opengl32" />
+			<Add library="../../../../../../../../../libjpeg-turbo-gcc64/lib/libjpeg.a" />
 		</Linker>
 		<Unit filename="../dino.cpp" />
 		<Unit filename="aile.cpp" />
@@ -44,16 +46,21 @@
 		<Unit filename="anneau2.cpp" />
 		<Unit filename="anneau3.cpp" />
 		<Unit filename="anneau4.cpp" />
-		<Unit filename="anneau5..cpp" />
+		<Unit filename="anneau5.cpp" />
+		<Unit filename="buche.cpp" />
 		<Unit filename="corps.cpp" />
 		<Unit filename="cou.cpp" />
 		<Unit filename="fonctions.h" />
+		<Unit filename="gestionPattesArriere.cpp" />
 		<Unit filename="map.cpp" />
 		<Unit filename="mimineArriere.cpp" />
 		<Unit filename="mimineAvant.cpp" />
-		<Unit filename="pattesArriere.cpp" />
+		<Unit filename="pattesArriereDroite.cpp" />
+		<Unit filename="pattesArriereGauche.cpp" />
 		<Unit filename="pattesAvant.cpp" />
+		<Unit filename="plume.cpp" />
 		<Unit filename="queue.cpp" />
+		<Unit filename="sapin.cpp" />
 		<Unit filename="tete.cpp" />
 		<Extensions />
 	</Project>

@@ -14,15 +14,15 @@ void gestionPattesArriere(int anim, bool marche){
     glPushMatrix();
         glTranslatef(8.0, 0.0, 0.0);
         if(marche)
-            glRotatef(10 * motif1[anim], 0, 0, 1);
-        dessinePattesArriereGauche();
+            glRotatef(15 * motif1[anim], 0, 0, 1);
+        dessinePattesArriereGauche(anim, marche);
     glPopMatrix();
 
     glPushMatrix();
         glTranslatef(8.0, 0.0, 0.0);
         if(marche)
-            glRotatef(10 * motif2[anim], 0, 0, 1);
-        dessinePattesArriereDroite();
+            glRotatef(15 * motif2[anim], 0, 0, 1);
+        dessinePattesArriereDroite(anim, marche);
     glPopMatrix();
 
 

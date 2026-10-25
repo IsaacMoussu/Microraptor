@@ -13,9 +13,12 @@ char presse;
 int anglex,angley = 20,x,y,xold,yold;
 int camx = 0, camy = 0;
 float zoom = 0.0f;
-int vitesseAnim = 300;
-int frame = 0;
-int anim = 0;
+int vitesseAnim1 = 100;
+int vitesseAnim2 = 100;
+int frame1 = 0;
+int frame2 = 0;
+int anim1 = 0;
+int anim2 = 0;
 bool marche = false;
 float angleMarche = 0;
 
@@ -93,9 +96,9 @@ void affichage()
             glTranslatef(0.0, 0.0, 15.0);
 
             dessineCorps();
-            dessineQueue(anim);
+            dessineQueue(anim1);
             dessinePattesAvant();
-            gestionPattesArriere(anim, marche);
+            gestionPattesArriere(anim2, marche);
             dessineTete();
             dessineCou();
 
@@ -107,8 +110,8 @@ void affichage()
     //glColor3f(0.35, 0.3, 0.3);MARRON
     //glColor3f(0.6, 0, 0);ROUGE
 
-dessineMap();
-    animation();
+    animation1();
+    animation2();
 
 
 
@@ -137,14 +140,27 @@ void initLight() {
     glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
 }
 
-void animation(){
+void animation1(){
 
-    frame++;
-    if(frame >= vitesseAnim){
-        frame = 0;
-        anim++;
-        if(anim >= 8)
-            anim = 0;
+    frame1++;
+    if(frame1 >= vitesseAnim1){
+        frame1 = 0;
+        anim1++;
+        if(anim1 >= 8)
+            anim1 = 0;
+    }
+
+    glutPostRedisplay();
+}
+
+void animation2(){
+
+    frame2++;
+    if(frame2 >= vitesseAnim2){
+        frame2 = 0;
+        anim2++;
+        if(anim2 >= 8)
+            anim2 = 0;
     }
 
     glutPostRedisplay();
