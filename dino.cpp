@@ -159,15 +159,14 @@ void initLight() {
     glShadeModel(GL_SMOOTH);
     glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
 
-    GLfloat lumiere_ciel[] = {0.6, 0.6, 0.6, 1.0};
+    GLfloat lumiere_ciel[] = {0.6, 0.6, 0.6, 0.6};
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lumiere_ciel);
 
-    glEnable(GL_LIGHT0);
-    GLfloat ambiante[] = { 0.2f, 0.2f, 0.2f, 1.0f };
-    GLfloat diffuse[]  = { 0.8f, 0.8f, 0.8f, 1.0f };
-
+    GLfloat ambiante[] = { 0.3f, 0.3f, 0.3f, 0.0f };
+    GLfloat diffuse[]  = { 1.5f, 0.8f, 0.6f, 1.0f };
     glLightfv(GL_LIGHT0, GL_AMBIENT, ambiante);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+    glEnable(GL_LIGHT0);
 }
 
 void animation1(){
