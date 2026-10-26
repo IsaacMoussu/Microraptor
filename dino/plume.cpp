@@ -56,7 +56,7 @@ void initPlume(float r, float g, float b)
         }
 }
 
-void dessinePlume()
+void dessinePlume(GLuint texObject[])
 {
 
     int i, j;
@@ -65,8 +65,9 @@ void dessinePlume()
     const float PAS_S = 1.0 / NM; // pour eviter de faire une conversion dans le calcul
     const float PAS_T = 1.0 / NP; // pour eviter de faire une conversion dans le calcul
 
-    glEnable(GL_TEXTURE_2D);   // active texture
-    glColor3f(1.0f, 1.0f, 1.0f);   // blanc car sinon couleur fois texture = moche
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, texObject[0]);
+    glColor3f(1.0f, 1.0f, 1.0f);
 
     for (i = 0; i < NM; i++)
         for (j = 0; j < NP; j++)

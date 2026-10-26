@@ -6,7 +6,7 @@
 #endif
 #include <cstdlib>
 
-void dessineQueue(int i){
+void dessineQueue(int i, GLuint texObject[]){
 
     int motif1[] = {0, 1, 2, 1, 0, -1, -2, -1};
     int motif2[] = {-1, 0, 1, 2, 1, 0, -1, -2};
@@ -22,35 +22,35 @@ void dessineQueue(int i){
         glTranslatef(13.5, 1.6, 0.0);
         glTranslatef(0.0, 0.2 * motif1[i], 0.0);
         glRotatef(10 * motif1[i] ,0, 0, 1);
-        dessineAnneau1();
+        dessineAnneau1(texObject);
     glPopMatrix();
 
     glPushMatrix();
         glTranslatef(15.5, 1.6, 0.0);
         glTranslatef(0.0, deplacement1[i], 0.0);
         glRotatef(10 * motif2[i] ,0, 0, 1);
-        dessineAnneau2();
+        dessineAnneau2(texObject);
     glPopMatrix();
 
     glPushMatrix();
         glTranslatef(17.5, 1.6, 0.0);
         glTranslatef(0.0, deplacement2[i], 0.0);
         glRotatef(10 * motif3[i] ,0, 0, 1);
-        dessineAnneau3();
+        dessineAnneau3(texObject);
     glPopMatrix();
 
     glPushMatrix();
         glTranslatef(19.5, 1.6, 0.0);
         glTranslatef(0.0, deplacement3[i], 0.0);
         glRotatef(10 * motif4[i] ,0, 0, 1);
-        dessineAnneau4();
+        dessineAnneau4(texObject);
     glPopMatrix();
 
     glPushMatrix();
         glTranslatef(21.5, 1.6, 0.0);
         glTranslatef(0.0, deplacement4[i], 0.0);
         glRotatef(10 * motif5[i] ,0, 0, 1);
-        dessineAnneau5();
+        dessineAnneau5(texObject);
     glPopMatrix();
 
 

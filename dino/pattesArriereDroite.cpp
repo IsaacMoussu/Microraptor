@@ -6,7 +6,7 @@
 #endif
 #include <cstdlib>
 
-void dessinePattesArriereDroite(int anim, bool marche){
+void dessinePattesArriereDroite(int anim, bool marche, GLuint texObject[]){
 
         float motif[] = {2, 0, -2, -1, 0, -1, -2, 0};
 
@@ -32,7 +32,7 @@ void dessinePattesArriereDroite(int anim, bool marche){
             glutSolidCylinder(0.5, 5.0, 6.0, 10.0);
             glTranslatef(0.0, 0.6, -1.0);
             glScalef(1.5, 1.0, 1.0);
-            plumesLeLongDuBras(5.0, 180.0);
+            plumesLeLongDuBras(5.0, 180.0, texObject);
         glPopMatrix();
         glPushMatrix();
             glTranslatef(6.2, 1.0, -3.7);
@@ -44,7 +44,7 @@ void dessinePattesArriereDroite(int anim, bool marche){
             glutSolidCylinder(0.5, 5.0, 6.0, 10.0);
             glTranslatef(-1.0, 0.6, 0.3);
             glRotatef(30, 0, 1, 0);
-            plumesLeLongDuBras(5.0, 180);
+            plumesLeLongDuBras(5.0, 180, texObject);
         glPopMatrix();
         glColor3f(0.35f, 0.3f, 0.3f); // MARRON
         glPushMatrix();

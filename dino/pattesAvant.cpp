@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 // L = longueur du cylindre , pour le mttre sur toute la longueur
-void plumesLeLongDuBras(float L, float cote)
+void plumesLeLongDuBras(float L, float cote, GLuint texObject[])
 {
     int N = 8;   // nombre de plumes sur le bras
     for (int k = 0; k < N; k++)
@@ -19,7 +19,7 @@ void plumesLeLongDuBras(float L, float cote)
             glTranslatef(1.0, 0.0, 0.0);                 // la premire plume commence au bord
             glScalef(1.0, 0.1, 0.3);                     // longueur épaisseur et largeur
             glColor3f(0.35, 0.3, 0.3); // MARRON
-            dessinePlume();
+            dessinePlume(texObject);
             glTranslatef(-1.0, 0.0, 0.0); 
             glScalef(1.0, 5.0, 2.3);                     // longueur épaisseur et largeur
             glColor3f(0.2, 0.4, 0.2); //VERT
@@ -32,7 +32,7 @@ void plumesLeLongDuBras(float L, float cote)
     }
 }
 
-void dessinePattesAvant(){
+void dessinePattesAvant(GLuint texObject[]){
     for(int i = -1; i < 2; i=i+2){
         int cote;
         if (i == 1) {
@@ -49,7 +49,7 @@ void dessinePattesAvant(){
                 glutSolidCylinder(0.5, 4.0, 6.0, 10.0);
                 glTranslatef(0.0, 0.6, 0.0);
                 glScalef(1.5, 1.0, 1.0);
-                plumesLeLongDuBras(4.0, cote);
+                plumesLeLongDuBras(4.0, cote, texObject);
             glPopMatrix();
             glPushMatrix();
                 glTranslatef(1.9, 1.5, 3.3 * i);
@@ -58,7 +58,7 @@ void dessinePattesAvant(){
                 glutSolidCylinder(0.5, 4.0, 6.0, 10.0);
                 glTranslatef(0.0, 0.6, 0.0);
                 glScalef(1.5, 1.0, 2.0);
-                plumesLeLongDuBras(4.0, cote);
+                plumesLeLongDuBras(4.0, cote, texObject);
             glPopMatrix();
 
             dessineMimineAvant(i);

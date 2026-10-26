@@ -9,29 +9,28 @@
 
 void dessineRepere();
 void dessineCorps(GLuint texObject[]); // param pour le tableau de texture 
-void dessineQueue(int i);
-void dessinePattesArriereGauche(int anim, bool marche);
-void dessinePattesArriereDroite(int anim, bool marche);
-void gestionPattesArriere(int anim, bool marche);
-void dessinePattesAvant();
-void dessineTete();
-void dessineCou();
+void dessineQueue(int i, GLuint texObject[]); // param pour le tableau de texture
+void dessinePattesArriereGauche(int anim, bool marche, GLuint texObject[]); // param pour le tableau de texture
+void dessinePattesArriereDroite(int anim, bool marche, GLuint texObject[]); // param pour le tableau de texture
+void gestionPattesArriere(int anim, bool marche, GLuint texObject[]); // param pour le tableau de texture
+void dessinePattesAvant(GLuint texObject[]); // param pour le tableau de texture
+void dessineTete(GLuint texObject[]); // param pour le tableau de texture
+void dessineCou(GLuint texObject[]); // param pour le tableau de texture
 void dessineAile();
 void dessineMimineAvant(int i);
 void dessineMimineArriere(int i);
 void dessineMap();
-void dessineAnneau1();
-void dessineAnneau2();
-void dessineAnneau3();
-void dessineAnneau4();
-void dessineAnneau5();
+void dessineAnneau1(GLuint texObject[]); // param pour le tableau de texture
+void dessineAnneau2(GLuint texObject[]); // param pour le tableau de texture
+void dessineAnneau3(GLuint texObject[]); // param pour le tableau de texture
+void dessineAnneau4(GLuint texObject[]); // param pour le tableau de texture
+void dessineAnneau5(GLuint texObject[]); // param pour le tableau de texture
 void animation1();
 void animation2();
 void dessineSapin();
 void dessineBuche();
 void initPlume(float r, float g, float b);
 void dessineRangeesPlumes();
-void dessinePlume();
-void plumesLeLongDuBras(float L, float cote);
-
+void dessinePlume(GLuint texObject[]); // param pour le tableau de texture
+void plumesLeLongDuBras(float L, float cote, GLuint texObject[]); // param pour le tableau de texture
 #endif // FONCTIONS_H_INCLUDED

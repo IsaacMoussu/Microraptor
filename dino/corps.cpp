@@ -64,19 +64,24 @@ void dessineCorps(GLuint texObject[])
     glColor3f(0.8f, 0.8f, 0.7f); // BEIGE
     glBegin(GL_QUADS);
     // Face 3
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(0.0f, 1.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(6.0f, 1.0f, 0.82f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(6.0f, 0.0f, 0.41f);
     glTexCoord2f(0.0f, 1.0f);
     glVertex3f(0.0f, 0.0f, 0.5f);
     // Face 4
     glTexCoord2f(0.0f, 0.0f);
     glVertex3f(0.0f, 0.0f, 0.5f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(6.0f, 0.0f, 0.41f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(6.0f, 0.0f, -0.41f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(0.0f, 0.0f, -0.5f);
     // Face 5
-    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(6.0f, 0.0f, -0.41f);
     glVertex3f(6.0f, 1.0f, -0.82f);
     glVertex3f(0.0f, 1.0f, -1.0f);
@@ -118,19 +123,31 @@ void dessineCorps(GLuint texObject[])
     glColor3f(0.8f, 0.8f, 0.7f); // BEIGE
     glBegin(GL_QUADS);
     // Face 3
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(6.0f, 1.0f, 0.82f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(12.0f, 1.6f, 0.64f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(12.0f, 1.2f, 0.36f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(6.0f, 0.0f, 0.41f);
     // Face 4
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(6.0f, 0.0f, 0.41f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(12.0f, 1.2f, 0.36f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(12.0f, 1.2f, -0.36f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(6.0f, 0.0f, -0.41f);
     // Face 5
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f(6.0f, 0.0f, -0.41f);
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f(12.0f, 1.2f, -0.36f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(12.0f, 1.6f, -0.64f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(6.0f, 1.0f, -0.82f);
     glEnd();
 glDisable(GL_TEXTURE_2D);

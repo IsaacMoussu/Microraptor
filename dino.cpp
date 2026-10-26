@@ -68,10 +68,10 @@ int main(int argc,char **argv)
 
 
 // TEXTURE PLUME
-//loadJpegImage("./plume.jpg", image, LARGEUR, HAUTEUR);
+loadJpegImage("./plume.jpg", image, LARGEUR, HAUTEUR);
 
 // TEXTURE ECAILLE
-//loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
+loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
 
 
   // image dans texture  (TD3)
@@ -135,7 +135,7 @@ void affichage()
 
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  glOrtho(-100.0f + zoom, 100.0f - zoom, -100.0f + zoom, 100.0f - zoom, -100.0f + zoom, 100.0f - zoom);
+  glOrtho(-100.0f + zoom, 100.0f - zoom, -100.0f + zoom, 100.0f - zoom, -200.0f, 200.0f);
 
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
@@ -162,11 +162,11 @@ void affichage()
                 glTranslatef(0.0, motif[anim2], 0.0);
 
             dessineCorps(texObject);
-            dessineQueue(anim1);
-            dessinePattesAvant();
-            gestionPattesArriere(anim2, marche);
-            dessineTete();
-            dessineCou();
+            dessineQueue(anim1, texObject);
+            dessinePattesAvant(texObject);
+            gestionPattesArriere(anim2, marche, texObject);
+            dessineTete(texObject);
+            dessineCou(texObject);
 
     glPopMatrix();
 
@@ -378,7 +378,7 @@ void mousemotion(int x,int y)
   }
 
   // extrait de jpegtex.cpp pour load la texture
-/*
+
   void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur) // vu qu'on a 2 textures, il faut le traiter pour chacune d'entre elle d'ou les parametres supplementaires
 {
   struct jpeg_decompress_struct cinfo;
@@ -414,4 +414,4 @@ void mousemotion(int x,int y)
   jpeg_finish_decompress(&cinfo);
   jpeg_destroy_decompress(&cinfo);
   fclose(file);
-}*/
+}
