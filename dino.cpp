@@ -52,6 +52,7 @@ void mouse(int bouton,int etat,int x,int y);
 void mousemotion(int x,int y);
 void vSpecial(int key, int x, int y);
 void initLight();
+void positionLight();
 void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur);
 GLuint texObject[2]; //objet texture (voir cours slide 22)
 
@@ -79,15 +80,16 @@ loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
     for (int j=0;j<LARGEUR;j++) {
       texture[i][j][0]=image[i*LARGEUR*3+j*3];
       texture[i][j][1]=image[i*LARGEUR*3+j*3+1];
-      texture[i][j][2]=image[i*LARGEUR*3+j*3+2]; }
+      texture[i][j][2]=image[i*LARGEUR*3+j*3+2];
+      }
 
   // image ecaille dans textureEcaille
-for (int i = 0; i < HAUTEUR_ECAILLE; i++)
-    for (int j = 0; j < LARGEUR_ECAILLE; j++) {
-        textureEcaille[i][j][0] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3];
-        textureEcaille[i][j][1] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3 + 1];
-        textureEcaille[i][j][2] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3 + 2];
-    }
+    for (int i = 0; i < HAUTEUR_ECAILLE; i++)
+        for (int j = 0; j < LARGEUR_ECAILLE; j++) {
+            textureEcaille[i][j][0] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3];
+            textureEcaille[i][j][1] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3 + 1];
+            textureEcaille[i][j][2] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3 + 2];
+            }
 
 
   // genere les 2 objt de texture
@@ -113,6 +115,8 @@ glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, LARGEUR_ECAILLE, HAUTEUR_ECAILLE, 0, GL_R
   glColor3f(1.0,1.0,1.0);
   glPointSize(2.0);
   glEnable(GL_DEPTH_TEST);
+
+  initLight();
 
   /* enregistrement des fonctions de rappel */
   glutDisplayFunc(affichage);
@@ -143,11 +147,9 @@ void affichage()
   glRotatef(anglex,0.0,1.0,0.0);
   glTranslatef(camx, camy, 0.0);
 
-    glEnable(GL_DEPTH_TEST);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    positionLight();
 
     dessineRepere();
-    initLight();
     dessineMap();
 
     if(marche)
@@ -188,7 +190,7 @@ void affichage()
 }
 
 void initLight() {
-    // 1. Allumage du moteur d'éclairage et lissage
+    // Allumage du moteur d'éclairage et lissage
     glEnable(GL_LIGHTING);
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_NORMALIZE);
@@ -198,11 +200,30 @@ void initLight() {
     GLfloat lumiere_ciel[] = {0.6, 0.6, 0.6, 0.6};
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lumiere_ciel);
 
-    GLfloat ambiante[] = { 0.3f, 0.3f, 0.3f, 0.0f };
-    GLfloat diffuse[]  = { 1.5f, 0.8f, 0.6f, 1.0f };
-    glLightfv(GL_LIGHT0, GL_AMBIENT, ambiante);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+    GLfloat ambiante0[] = { 0.3f, 0.3f, 0.3f, 1.0f};
+    GLfloat diffuse0[]  = { 1.5f, 0.8f, 0.6f, 1.0f};
+    glLightfv(GL_LIGHT0, GL_AMBIENT, ambiante0);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse0);
     glEnable(GL_LIGHT0);
+
+    GLfloat diffuse1[]  = { 0.8f, 0.8f, 0.6f, 1.0f};
+    GLfloat speculaire1[] = { 1.0f, 1.0f, 1.0f, 1.0f};
+    glLightfv(GL_LIGHT1, GL_SPECULAR, speculaire1);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse1);
+    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 60.0f);
+    glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 2.0f);
+    glEnable(GL_LIGHT1);
+}
+
+void positionLight(){
+
+    GLfloat soleil[] = {0.0, 30.0, 0.0, 0.0};
+    glLightfv(GL_LIGHT0, GL_POSITION, soleil);
+
+    GLfloat position_spot[] = {0.0, 6.0, 0.0, 1.0};
+    GLfloat direction_spot[] = {0.0, -1.0, 0.0};
+    glLightfv(GL_LIGHT1, GL_POSITION, position_spot);
+    glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, direction_spot);
 }
 
 void animation1(){
