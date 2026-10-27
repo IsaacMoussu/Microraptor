@@ -33,8 +33,8 @@ char presse;
 int anglex,angley = 20,x,y,xold,yold;
 int camx = 0, camy = 0;
 float zoom = 0.0f;
-int vitesseAnim1 = 100;
-int vitesseAnim2 = 85;
+int vitesseAnim1 = 10;
+int vitesseAnim2 = 10;
 int frame1 = 0;
 int frame2 = 0;
 int anim1 = 0;
@@ -217,10 +217,10 @@ void initLight() {
 
 void positionLight(){
 
-    GLfloat soleil[] = {0.0, 30.0, 0.0, 0.0};
+    GLfloat soleil[] = {0.0, 33.0, 0.0, 0.0};
     glLightfv(GL_LIGHT0, GL_POSITION, soleil);
 
-    GLfloat position_spot[] = {0.0, 6.0, 0.0, 1.0};
+    GLfloat position_spot[] = {0.0, 30.0, 0.0, 1.0};
     GLfloat direction_spot[] = {0.0, -1.0, 0.0};
     glLightfv(GL_LIGHT1, GL_POSITION, position_spot);
     glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, direction_spot);

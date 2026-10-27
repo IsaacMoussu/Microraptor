@@ -6,7 +6,8 @@
 #endif
 #include <cstdlib>
 
-void dessineQueue(int i, GLuint texObject[]){
+void dessineQueue(int i, GLuint texObject[])
+{
 
     int motif1[] = {0, 1, 2, 1, 0, -1, -2, -1};
     int motif2[] = {-1, 0, 1, 2, 1, 0, -1, -2};
@@ -19,73 +20,37 @@ void dessineQueue(int i, GLuint texObject[]){
     float deplacement4[] = {-1.3, -1.15, -0.3, 0.78, 1.3, 1.15, 0.3, -0.78};
 
     glPushMatrix();
-        glTranslatef(13.5, 1.6, 0.0);
-        glTranslatef(0.0, 0.2 * motif1[i], 0.0);
-        glRotatef(10 * motif1[i] ,0, 0, 1);
-        dessineAnneau1(texObject);
+    glTranslatef(13.5, 1.6, 0.0);
+    glTranslatef(0.0, 0.2 * motif1[i], 0.0);
+    glRotatef(10 * motif1[i], 0, 0, 1);
+    dessineAnneau1(texObject);
     glPopMatrix();
 
     glPushMatrix();
-        glTranslatef(15.5, 1.6, 0.0);
-        glTranslatef(0.0, deplacement1[i], 0.0);
-        glRotatef(10 * motif2[i] ,0, 0, 1);
-        dessineAnneau2(texObject);
+    glTranslatef(15.5, 1.6, 0.0);
+    glTranslatef(0.0, deplacement1[i], 0.0);
+    glRotatef(10 * motif2[i], 0, 0, 1);
+    dessineAnneau2(texObject);
     glPopMatrix();
 
     glPushMatrix();
-        glTranslatef(17.5, 1.6, 0.0);
-        glTranslatef(0.0, deplacement2[i], 0.0);
-        glRotatef(10 * motif3[i] ,0, 0, 1);
-        dessineAnneau3(texObject);
+    glTranslatef(17.5, 1.6, 0.0);
+    glTranslatef(0.0, deplacement2[i], 0.0);
+    glRotatef(10 * motif3[i], 0, 0, 1);
+    dessineAnneau3(texObject);
     glPopMatrix();
 
     glPushMatrix();
-        glTranslatef(19.5, 1.6, 0.0);
-        glTranslatef(0.0, deplacement3[i], 0.0);
-        glRotatef(10 * motif4[i] ,0, 0, 1);
-        dessineAnneau4(texObject);
+    glTranslatef(19.5, 1.6, 0.0);
+    glTranslatef(0.0, deplacement3[i], 0.0);
+    glRotatef(10 * motif4[i], 0, 0, 1);
+    dessineAnneau4(texObject);
     glPopMatrix();
 
     glPushMatrix();
-        glTranslatef(21.5, 1.6, 0.0);
-        glTranslatef(0.0, deplacement4[i], 0.0);
-        glRotatef(10 * motif5[i] ,0, 0, 1);
-        dessineAnneau5(texObject);
+    glTranslatef(21.5, 1.6, 0.0);
+    glTranslatef(0.0, deplacement4[i], 0.0);
+    glRotatef(10 * motif5[i], 0, 0, 1);
+    dessineAnneau5(texObject);
     glPopMatrix();
-
-
-/*
-    //LA QUEUEEEEEE
-    glColor3f(0.2, 0.4, 0.2);//VERT
-    glPushMatrix();
-        glTranslatef(11.5, 1.6, 0.6);
-        glRotatef(25, 0, -1.0, 0.0);
-        glScalef(3.0, 0.3, 1.0);
-        glutSolidCube(1.0);
-    glPopMatrix();
-
-    glColor3f(0.35, 0.3, 0.3);//MARRON
-    glPushMatrix();
-        glTranslatef(11.5, 1.6, 0.6);
-        glRotatef(25, 0, -1.0, 0.0);
-        glScalef(4.0, 0.29, 0.99);
-        glutSolidCube(1.0);
-    glPopMatrix();
-
-    glColor3f(0.2, 0.4, 0.2);//VERT
-    glPushMatrix();
-        glTranslatef(11.5, 1.6, -0.6);
-        glRotatef(25, 0, 1.0, 0.0);
-        glScalef(3.0, 0.3, 1.0);
-        glutSolidCube(1.0);
-    glPopMatrix();
-
-    glColor3f(0.35, 0.3, 0.3);//MARRON
-    glPushMatrix();
-        glTranslatef(11.5, 1.6, -0.6);
-        glRotatef(25, 0, 1.0, 0.0);
-        glScalef(4.0, 0.29, 0.99);
-        glutSolidCube(1.0);
-    glPopMatrix();*/
-
 }
