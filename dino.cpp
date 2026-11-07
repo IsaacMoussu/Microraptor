@@ -149,7 +149,7 @@ void affichage()
 
     positionLight();
 
-    dessineRepere();
+    // dessineRepere();
     dessineMap();
 
     if(marche)
