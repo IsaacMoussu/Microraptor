@@ -9,7 +9,7 @@
 void dessineSapin()
 {
 
-    glColor3f(0.35f, 0.3f, 0.3f); // MARRON
+    glColor3f(0.35, 0.3, 0.3); // MARRON
     glPushMatrix();
     glTranslatef(0.0, -11.7, 0.0);
     glRotatef(90, -1, 0, 0);

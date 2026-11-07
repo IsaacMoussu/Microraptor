@@ -34,7 +34,7 @@ int anglex,angley = 20,x,y,xold,yold;
 int camx = 0, camy = 0;
 float zoom = 0.0f;
 int vitesseAnim1 = 10;
-int vitesseAnim2 = 10;
+int vitesseAnim2 = 5;
 int frame1 = 0;
 int frame2 = 0;
 int anim1 = 0;
@@ -153,7 +153,7 @@ void affichage()
     dessineMap();
 
     if(marche)
-        angleMarche += 0.1;
+        angleMarche += 1.0;
     if(angleMarche >= 360)
         angleMarche -= 360;
 
@@ -252,7 +252,7 @@ void animation2(){
     glutPostRedisplay();
 }
 
-void dessineRepere(){
+/*void dessineRepere(){
 
     //Rep�re
     //axe x en rouge
@@ -273,7 +273,7 @@ void dessineRepere(){
     	glVertex3f(0, 0,0.0);
     	glVertex3f(0, 0,1.0);
     glEnd();
-}
+}*/
 
 
 void clavier(unsigned char touche,int x,int y)

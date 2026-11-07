@@ -6,22 +6,18 @@
 #include <cstdlib>
 #include <cmath> // pour le pi et sin cos
 
-/*class Point*/
 class Point
 {
 public:
-    // coordonnées x, y et z du point
     double x;
     double y;
     double z;
-    // couleur r, v et b du point
     float r;
     float g;
     float b;
 };
 
-// création sphère cylindrique (j'ai repris le même modèle que pour le cube,
-// mais pour la sphère à l'aide aussi du TD4)
+// création sphère cylindrique (car pas beaucoup de faces)
 const int NM = 8;
 const int NP = 4;
 
@@ -61,9 +57,9 @@ void dessinePlume(GLuint texObject[])
 
     int i, j;
     int a, b, c, d;               // 4 sommets de la face actuelle
-    float s0, s1, t0, t1;         // bords de la case de l'image pour cette face
-    const float PAS_S = 1.0 / NM; // pour eviter de faire une conversion dans le calcul
-    const float PAS_T = 1.0 / NP; // pour eviter de faire une conversion dans le calcul
+    float s0, s1, t0, t1;         // bords de la case de l'image pour cette face (pour la texture)
+    const float PAS_S = 1.0 / NM; // pour eviter de faire une conversion dans le calcul (int / float)
+    const float PAS_T = 1.0 / NP;
 
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, texObject[0]);
@@ -92,5 +88,5 @@ void dessinePlume(GLuint texObject[])
             glVertex3f(pSphere[d].x, pSphere[d].y, pSphere[d].z);
             glEnd();
         }
-    glDisable(GL_TEXTURE_2D);  // desactive texture sinon le reste serait texturer aussi
+    glDisable(GL_TEXTURE_2D); 
 }

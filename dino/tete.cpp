@@ -11,233 +11,218 @@ void dessineTete(GLuint texObject[])
 
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, texObject[1]);
-    glColor3f(1.0f, 1.0f, 1.0f);
+    glColor3f(1.0, 1.0, 1.0);
 
 
-    // cou -> crâne
-
+    // cou
     // dessus
-    glColor3f(0.2f, 0.3f, 0.2f); // VERT
+    glColor3f(0.2, 0.3, 0.2); // VERT
     glBegin(GL_QUADS);
     // Face 1
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.1f, 3.2f, -0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-1.8f, 3.4f, -0.8f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-1.8f, 3.4f, 0.8f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.1f, 3.2f, 0.5f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.1, 3.2, -0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-1.8, 3.4, -0.8);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-1.8, 3.4, 0.8);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.1, 3.2, 0.5);
     // Face 2
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.1f, 3.2f, 0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-1.8f, 3.4f, 0.8f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-1.8f, 2.8f, 0.8f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.1f, 2.4f, 0.5f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.1, 3.2, 0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-1.8, 3.4, 0.8);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-1.8, 2.8, 0.8);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.1, 2.4, 0.5);
     // Face 6
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.1f, 2.4f, -0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-1.8f, 2.8f, -0.8f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-1.8f, 3.4f, -0.8f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.1f, 3.2f, -0.5f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.1, 2.4, -0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-1.8, 2.8, -0.8);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-1.8, 3.4, -0.8);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.1, 3.2, -0.5);
     glEnd();
 
     // dessous
-    glColor3f(0.8f, 0.8f, 0.7f); // BEIGE
+    glColor3f(0.8, 0.8, 0.7); // BEIGE
     glBegin(GL_QUADS);
     // Face 3
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.1f, 2.4f, 0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-1.8f, 2.8f, 0.8f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-1.8f, 2.1f, 0.5f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.1f, 1.5f, 0.3f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.1, 2.4, 0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-1.8, 2.8, 0.8);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-1.8, 2.1, 0.5);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.1, 1.5, 0.3);
     // Face 4
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.1f, 1.5f, 0.3f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-1.8f, 2.1f, 0.5f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-1.8f, 2.1f, -0.5f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.1f, 1.5f, -0.3f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.1, 1.5, 0.3);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-1.8, 2.1, 0.5);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-1.8, 2.1, -0.5);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.1, 1.5, -0.3);
     // Face 5
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.1f, 1.5f, -0.3f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-1.8f, 2.1f, -0.5f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-1.8f, 2.8f, -0.8f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.1f, 2.4f, -0.5f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.1, 1.5, -0.3);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-1.8, 2.1, -0.5);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-1.8, 2.8, -0.8);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.1, 2.4, -0.5);
     glEnd();
 
-    // crâne -> museau
-
+    // crane
     // dessus
-    glColor3f(0.2f, 0.3f, 0.2f); // VERT
+    glColor3f(0.2, 0.3, 0.2); // VERT
     glBegin(GL_QUADS);
     // Face 1
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.8f, 3.4f, -0.8f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-2.8f, 3.3f, -0.5f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-2.8f, 3.3f, 0.5f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.8f, 3.4f, 0.8f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.8, 3.4, -0.8);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-2.8, 3.3, -0.5);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-2.8, 3.3, 0.5);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.8, 3.4, 0.8);
     // Face 2
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.8f, 3.4f, 0.8f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-2.8f, 3.3f, 0.5f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-2.8f, 2.8f, 0.5f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.8f, 2.8f, 0.8f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.8, 3.4, 0.8);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-2.8, 3.3, 0.5);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-2.8, 2.8, 0.5);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.8, 2.8, 0.8);
     // Face 6
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.8f, 2.8f, -0.8f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-2.8f, 2.8f, -0.5f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-2.8f, 3.3f, -0.5f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.8f, 3.4f, -0.8f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.8, 2.8, -0.8);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-2.8, 2.8, -0.5);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-2.8, 3.3, -0.5);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.8, 3.4, -0.8);
     glEnd();
 
     // dessous
-    glColor3f(0.6f, 0.0f, 0.0f); // Rouge
+    glColor3f(0.6, 0.0, 0.0); // Rouge
     glBegin(GL_QUADS);
     // Face 3
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.8f, 2.8f, 0.8f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-2.8f, 2.8f, 0.5f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-2.8f, 2.3f, 0.4f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.8f, 2.1f, 0.5f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.8, 2.8, 0.8);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-2.8, 2.8, 0.5);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-2.8, 2.3, 0.4);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.8, 2.1, 0.5);
     // Face 4
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.8f, 2.1f, 0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-2.8f, 2.3f, 0.4f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-2.8f, 2.3f, -0.4f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.8f, 2.1f, -0.5f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.8, 2.1, 0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-2.8, 2.3, 0.4);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-2.8, 2.3, -0.4);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.8, 2.1, -0.5);
     // Face 5
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.8f, 2.1f, -0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-2.8f, 2.3f, -0.4f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-2.8f, 2.8f, -0.5f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.8f, 2.8f, -0.8f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-1.8, 2.1, -0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-2.8, 2.3, -0.4);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-2.8, 2.8, -0.5);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-1.8, 2.8, -0.8);
     glEnd();
 
-    // museau -> bout du nez
-
-    // dessus
-    glColor3f(0.2f, 0.3f, 0.2f); // VERT
+    // debut museau ; dessus
+    glColor3f(0.2, 0.3, 0.2); // VERT
     glBegin(GL_QUADS);
     // Face 1
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-2.8f, 3.3f, -0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-3.4f, 3.2f, -0.4f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-3.4f, 3.2f, 0.4f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-2.8f, 3.3f, 0.5f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-2.8, 3.3, -0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-3.4, 3.2, -0.4);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-3.4, 3.2, 0.4);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-2.8, 3.3, 0.5);
     // Face 2
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-2.8f, 3.3f, 0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-3.4f, 3.2f, 0.4f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-3.4f, 2.8f, 0.4f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-2.8f, 2.8f, 0.5f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-2.8, 3.3, 0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-3.4, 3.2, 0.4);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-3.4, 2.8, 0.4);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-2.8, 2.8, 0.5);
     // Face 6
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-2.8f, 2.8f, -0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-3.4f, 2.8f, -0.4f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-3.4f, 3.2f, -0.4f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-2.8f, 3.3f, -0.5f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-2.8, 2.8, -0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-3.4, 2.8, -0.4);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-3.4, 3.2, -0.4);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-2.8, 3.3, -0.5);
     glEnd();
 
-    // Tache grise
-    glColor3f(0.2f, 0.2f, 0.2f); // Gris foncé
+    // Tache grise oeil 
+    glColor3f(0.2, 0.2, 0.2); // Gris foncé
     glBegin(GL_QUADS);
-    glVertex3f(-2.8f, 3.3f, 0.49f);
-    glVertex3f(-3.4f, 3.2f, 0.39f);
-    glVertex3f(-3.4f, 2.8f, 0.5f);
-    glVertex3f(-2.8f, 2.8f, 0.6f);
-    glVertex3f(-2.8f, 2.8f, -0.6f);
-    glVertex3f(-3.4f, 2.8f, -0.5f);
-    glVertex3f(-3.4f, 3.2f, -0.39f);
-    glVertex3f(-2.8f, 3.3f, -0.49f);
+    glVertex3f(-2.8, 3.3, 0.49);
+    glVertex3f(-3.4, 3.2, 0.39);
+    glVertex3f(-3.4, 2.8, 0.5);
+    glVertex3f(-2.8, 2.8, 0.6);
+    glVertex3f(-2.8, 2.8, -0.6);
+    glVertex3f(-3.4, 2.8, -0.5);
+    glVertex3f(-3.4, 3.2, -0.39);
+    glVertex3f(-2.8, 3.3, -0.49);
     glEnd();
 
     // dessous
-    glColor3f(0.6f, 0.0f, 0.0f); // Rouge
+    glColor3f(0.6, 0.0, 0.0); // Rouge
     glBegin(GL_QUADS);
     // Face 3
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-2.8f, 2.8f, 0.5f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-3.4f, 2.8f, 0.4f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-3.4f, 2.4f, 0.3f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-2.8f, 2.3f, 0.4f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-2.8, 2.8, 0.5);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-3.4, 2.8, 0.4);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-3.4, 2.4, 0.3);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-2.8, 2.3, 0.4);
     // Face 4
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-2.8f, 2.3f, 0.4f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-3.4f, 2.4f, 0.3f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-3.4f, 2.4f, -0.3f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-2.8f, 2.3f, -0.4f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-2.8, 2.3, 0.4);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-3.4, 2.4, 0.3);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-3.4, 2.4, -0.3);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-2.8, 2.3, -0.4);
     // Face 5
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-2.8f, 2.3f, -0.4f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-3.4f, 2.4f, -0.3f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-3.4f, 2.8f, -0.4f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-2.8f, 2.8f, -0.5f);
-    glEnd();
-
-    // Bouchon du bout du nez
-    glColor3f(0.2f, 0.3f, 0.2f); // VERT
-    glBegin(GL_POLYGON);
-    glVertex3f(-3.4f, 3.2f, -0.4f);
-    glVertex3f(-3.4f, 2.8f, -0.4f);
-    glVertex3f(-3.4f, 2.4f, -0.3f);
-    glVertex3f(-3.4f, 2.4f, 0.3f);
-    glVertex3f(-3.4f, 2.8f, 0.4f);
-    glVertex3f(-3.4f, 3.2f, 0.4f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-2.8, 2.3, -0.4);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-3.4, 2.4, -0.3);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-3.4, 2.8, -0.4);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-2.8, 2.8, -0.5);
     glEnd();
 
     // Oeil
-    glColor3f(0.0f, 0.0f, 0.0f);
+    glColor3f(0.0, 0.0, 0.0);
     glPushMatrix();
     glTranslatef(-3.0f, 3.1f, 0.5f);
     glutSolidSphere(0.1, 16, 16);
@@ -247,90 +232,87 @@ void dessineTete(GLuint texObject[])
     glutSolidSphere(0.1, 16, 16);
     glPopMatrix();
 
-    // bout du nez gris
-
-    // Le dessus du Tronçon 7
-    glColor3f(0.3f, 0.3f, 0.3f); // GRIS FONCÉ
+    // museau gris
+    glColor3f(0.3, 0.3, 0.3); // GRIS FONCÉ
     glBegin(GL_QUADS);
     // Face 1
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-3.4f, 3.2f, -0.4f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-4.2f, 3.1f, -0.3f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-4.2f, 3.1f, 0.3f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-3.4f, 3.2f, 0.4f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-3.4, 3.2, -0.4);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-4.2, 3.1, -0.3);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-4.2, 3.1, 0.3);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-3.4, 3.2, 0.4);
     // Face 2
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-3.4f, 3.2f, 0.4f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-4.2f, 3.1f, 0.3f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-4.2f, 2.8f, 0.3f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-3.4f, 2.8f, 0.4f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-3.4, 3.2, 0.4);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-4.2, 3.1, 0.3);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-4.2, 2.8, 0.3);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-3.4, 2.8, 0.4);
     // Face 6
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-3.4f, 2.8f, -0.4f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-4.2f, 2.8f, -0.3f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-4.2f, 3.1f, -0.3f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-3.4f, 3.2f, -0.4f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-3.4, 2.8, -0.4);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-4.2, 2.8, -0.3);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-4.2, 3.1, -0.3);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-3.4, 3.2, -0.4);
     glEnd();
 
-    // Le dessous du Tronçon 7
-    glColor3f(0.3f, 0.3f, 0.3f); // GRIS FONCÉ
+    // Le dessous 7
+    glColor3f(0.3, 0.3, 0.3); // GRIS FONCÉ
     glBegin(GL_QUADS);
     // Face 3
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-3.4f, 2.8f, 0.4f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-4.2f, 2.8f, 0.3f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-4.2f, 2.5f, 0.2f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-3.4f, 2.4f, 0.3f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-3.4, 2.8, 0.4);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-4.2, 2.8, 0.3);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-4.2, 2.5, 0.2);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-3.4, 2.4, 0.3);
     // Face 4
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-3.4f, 2.4f, 0.3f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-4.2f, 2.5f, 0.2f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-4.2f, 2.5f, -0.2f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-3.4f, 2.4f, -0.3f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-3.4, 2.4, 0.3);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-4.2, 2.5, 0.2);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-4.2, 2.5, -0.2);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-3.4, 2.4, -0.3);
     // Face 5
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-3.4f, 2.4f, -0.3f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-4.2f, 2.5f, -0.2f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-4.2f, 2.8f, -0.3f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-3.4f, 2.8f, -0.4f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(-3.4, 2.4, -0.3);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(-4.2, 2.5, -0.2);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-4.2, 2.8, -0.3);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-3.4, 2.8, -0.4);
     glEnd();
 
-    // Bouchon du bout du nez
-    glColor3f(0.3f, 0.3f, 0.3f); // GRIS FONCÉ
+    // Bout du nez
+    glColor3f(0.3, 0.3, 0.3); // GRIS FONCÉ
     glBegin(GL_POLYGON);
 
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-4.2f, 3.1f, -0.3f);
-    glTexCoord2f(0.0f, 0.5f); 
-    glVertex3f(-4.2f, 2.8f, -0.3f);
-    glTexCoord2f(0.2f, 0.0f);
-    glVertex3f(-4.2f, 2.5f, -0.2f);
-    glTexCoord2f(0.8f, 0.0f); 
-    glVertex3f(-4.2f, 2.5f, 0.2f);
-    glTexCoord2f(1.0f, 0.5f);
-    glVertex3f(-4.2f, 2.8f, 0.3f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(-4.2f, 3.1f, 0.3f);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(-4.2, 3.1, -0.3);
+    glTexCoord2f(0.0, 0.5); 
+    glVertex3f(-4.2, 2.8, -0.3);
+    glTexCoord2f(0.2, 0.0);
+    glVertex3f(-4.2, 2.5, -0.2);
+    glTexCoord2f(0.8, 0.0); 
+    glVertex3f(-4.2, 2.5, 0.2);
+    glTexCoord2f(1.0, 0.5);
+    glVertex3f(-4.2, 2.8, 0.3);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(-4.2, 3.1, 0.3);
     glEnd();
 
     glDisable(GL_TEXTURE_2D);
 }
-

@@ -10,71 +10,71 @@ void dessineAnneau2(GLuint texObject[])
 {
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, texObject[1]);
-    glColor3f(1.0f, 1.0f, 1.0f);
+    glColor3f(1.0, 1.0, 1.0);
 
     glPushMatrix();
     glTranslatef(-15.5, -1.6, 0.0);
     // Le dessus
-    glColor3f(0.2f, 0.3f, 0.2f); // VERT
+    glColor3f(0.2, 0.3, 0.2); // VERT
     glBegin(GL_QUADS);
 
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(13.8f, 2.0f, -0.592f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(15.6f, 2.0f, -0.544f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(15.6f, 2.0f, 0.544f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(13.8f, 2.0f, 0.592f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(13.8, 2.0, -0.59);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(15.6, 2.0, -0.54);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(15.6, 2.0, 0.54);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(13.8, 2.0, 0.59);
 
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(13.8f, 2.0f, 0.592f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(15.6f, 2.0f, 0.544f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(15.6f, 1.6f, 0.544f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(13.8f, 1.6f, 0.592f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(13.8, 2.0, 0.59);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(15.6, 2.0, 0.54);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(15.6, 1.6, 0.54);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(13.8, 1.6, 0.59);
 
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(13.8f, 1.6f, -0.592f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(15.6f, 1.6f, -0.544f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(15.6f, 2.0f, -0.544f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(13.8f, 2.0f, -0.592f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(13.8, 1.6, -0.59);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(15.6, 1.6, -0.54);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(15.6, 2.0, -0.54);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(13.8, 2.0, -0.59);
     glEnd();
 
     // Le dessous
     glBegin(GL_QUADS);
 
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(13.8f, 1.6f, 0.592f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(15.6f, 1.6f, 0.544f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(15.6f, 1.2f, 0.296f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(13.8f, 1.2f, 0.328f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(13.8, 1.6, 0.59);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(15.6, 1.6, 0.54);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(15.6, 1.2, 0.29);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(13.8, 1.2, 0.32);
 
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(13.8f, 1.2f, 0.328f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(15.6f, 1.2f, 0.296f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(15.6f, 1.2f, -0.296f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(13.8f, 1.2f, -0.328f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(13.8, 1.2, 0.32);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(15.6, 1.2, 0.29);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(15.6, 1.2, -0.29);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(13.8, 1.2, -0.32);
 
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(13.8f, 1.2f, -0.328f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(15.6f, 1.2f, -0.296f);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(15.6f, 1.6f, -0.544f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(13.8f, 1.6f, -0.592f);
+    glTexCoord2f(0.0, 0.0);
+    glVertex3f(13.8, 1.2, -0.32);
+    glTexCoord2f(1.0, 0.0);
+    glVertex3f(15.6, 1.2, -0.29);
+    glTexCoord2f(1.0, 1.0);
+    glVertex3f(15.6, 1.6, -0.54);
+    glTexCoord2f(0.0, 1.0);
+    glVertex3f(13.8, 1.6, -0.59);
     glEnd();
     glPopMatrix();
 
