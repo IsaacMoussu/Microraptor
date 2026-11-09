@@ -12,25 +12,24 @@
 #include <cstdio>
 #include <jerror.h>
 
-//taille image texture ecaille
+// taille image texture ecaille
 const int LARGEUR = 1408;
 const int HAUTEUR = 768;
 
 const int LARGEUR_ECAILLE = 1028;
 const int HAUTEUR_ECAILLE = 1024;
 
-// creation de tableau 
-unsigned char image[LARGEUR*HAUTEUR*3];
+// creation de tableau
+unsigned char image[LARGEUR * HAUTEUR * 3];
 unsigned char texture[HAUTEUR][LARGEUR][3];
 
 void loadJpegImage(char *fichier);
 
-unsigned char imageEcaille[LARGEUR_ECAILLE*HAUTEUR_ECAILLE*3];
+unsigned char imageEcaille[LARGEUR_ECAILLE * HAUTEUR_ECAILLE * 3];
 unsigned char textureEcaille[HAUTEUR_ECAILLE][LARGEUR_ECAILLE][3];
 
-
 char presse;
-int anglex,angley = 20,x,y,xold,yold;
+int anglex, angley = 20, x, y, xold, yold;
 int camx = 0, camy = 0;
 float zoom = 0.0f;
 int vitesseAnim1 = 10;
@@ -45,144 +44,143 @@ float motif[] = {0.0, -0.3, 1.5, 1.0, 0.0, -0.3, 1.5, 1.0};
 
 /* Prototype des fonctions */
 void affichage();
-void clavier(unsigned char touche,int x,int y);
-void reshape(int x,int y);
+void clavier(unsigned char touche, int x, int y);
+void reshape(int x, int y);
 void idle();
-void mouse(int bouton,int etat,int x,int y);
-void mousemotion(int x,int y);
+void mouse(int bouton, int etat, int x, int y);
+void mousemotion(int x, int y);
 void vSpecial(int key, int x, int y);
 void initLight();
 void positionLight();
 void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur);
-GLuint texObject[2]; //objet texture 
+GLuint texObject[2]; // objet texture
 
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
-  /* initialisation de glut et creation
-     de la fenetre */
-  glutInit(&argc,argv);
-  glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
-  glutInitWindowPosition(0,0);
-  glutInitWindowSize(1000,700);
-  glutCreateWindow("dino");
-  initPlume(0.25f, 0.4f, 0.2f);
+    /* initialisation de glut et creation
+       de la fenetre */
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
+    glutInitWindowPosition(0, 0);
+    glutInitWindowSize(1000, 700);
+    glutCreateWindow("dino");
+    initPlume(0.25f, 0.4f, 0.2f);
 
+    // TEXTURE PLUME
+    loadJpegImage("./plume.jpg", image, LARGEUR, HAUTEUR);
 
-// TEXTURE PLUME
-loadJpegImage("./plume.jpg", image, LARGEUR, HAUTEUR);
+    // TEXTURE ECAILLE
+    loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
 
-// TEXTURE ECAILLE
-loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
+    // image dans texture
+    for (int i = 0; i < HAUTEUR; i++)
+        for (int j = 0; j < LARGEUR; j++)
+        {
+            texture[i][j][0] = image[i * LARGEUR * 3 + j * 3];
+            texture[i][j][1] = image[i * LARGEUR * 3 + j * 3 + 1];
+            texture[i][j][2] = image[i * LARGEUR * 3 + j * 3 + 2];
+        }
 
-
-  // image dans texture  
-  for (int i=0;i<HAUTEUR;i++)
-    for (int j=0;j<LARGEUR;j++) {
-      texture[i][j][0]=image[i*LARGEUR*3+j*3];
-      texture[i][j][1]=image[i*LARGEUR*3+j*3+1];
-      texture[i][j][2]=image[i*LARGEUR*3+j*3+2];
-      }
-
-  // image ecaille dans textureEcaille
+    // image ecaille dans textureEcaille
     for (int i = 0; i < HAUTEUR_ECAILLE; i++)
-        for (int j = 0; j < LARGEUR_ECAILLE; j++) {
+        for (int j = 0; j < LARGEUR_ECAILLE; j++)
+        {
             textureEcaille[i][j][0] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3];
             textureEcaille[i][j][1] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3 + 1];
             textureEcaille[i][j][2] = imageEcaille[i * LARGEUR_ECAILLE * 3 + j * 3 + 2];
-            }
+        }
 
+    // genere les 2 objets de texture
+    glGenTextures(2, texObject);
 
-  // genere les 2 objets de texture
-glGenTextures(2, texObject);
+    // plume
+    glBindTexture(GL_TEXTURE_2D, texObject[0]);
 
-// plume
-glBindTexture(GL_TEXTURE_2D, texObject[0]);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, LARGEUR, HAUTEUR, 0, GL_RGB, GL_UNSIGNED_BYTE, texture);
 
-glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, LARGEUR, HAUTEUR, 0, GL_RGB, GL_UNSIGNED_BYTE, texture);
+    // ecaille
+    glBindTexture(GL_TEXTURE_2D, texObject[1]);
 
-// ecaille
-glBindTexture(GL_TEXTURE_2D, texObject[1]);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, LARGEUR_ECAILLE, HAUTEUR_ECAILLE, 0, GL_RGB, GL_UNSIGNED_BYTE, textureEcaille);
 
-glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, LARGEUR_ECAILLE, HAUTEUR_ECAILLE, 0, GL_RGB, GL_UNSIGNED_BYTE, textureEcaille);
+    /* Initialisation d'OpenGL */
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glColor3f(1.0, 1.0, 1.0);
+    glPointSize(2.0);
+    glEnable(GL_DEPTH_TEST);
 
+    initLight();
 
-  /* Initialisation d'OpenGL */
-  glClearColor(0.0,0.0,0.0,0.0);
-  glColor3f(1.0,1.0,1.0);
-  glPointSize(2.0);
-  glEnable(GL_DEPTH_TEST);
+    /* enregistrement des fonctions de rappel */
+    glutDisplayFunc(affichage);
+    glutKeyboardFunc(clavier);
+    glutSpecialFunc(vSpecial);
+    glutReshapeFunc(reshape);
+    glutMouseFunc(mouse);
+    glutMotionFunc(mousemotion);
 
-  initLight();
-
-  /* enregistrement des fonctions de rappel */
-  glutDisplayFunc(affichage);
-  glutKeyboardFunc(clavier);
-  glutSpecialFunc(vSpecial);
-  glutReshapeFunc(reshape);
-  glutMouseFunc(mouse);
-  glutMotionFunc(mousemotion);
-
-  /* Entree dans la boucle principale glut */
-  glutMainLoop();
-  return 0;
+    /* Entree dans la boucle principale glut */
+    glutMainLoop();
+    return 0;
 }
 
 void affichage()
 {
-  /* effacement de l'image avec la couleur de fond */
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  glShadeModel(GL_SMOOTH);
+    /* effacement de l'image avec la couleur de fond */
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glShadeModel(GL_SMOOTH);
 
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  glOrtho(-100.0f + zoom, 100.0f - zoom, -100.0f + zoom, 100.0f - zoom, -200.0f, 200.0f);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(-100.0f + zoom, 100.0f - zoom, -100.0f + zoom, 100.0f - zoom, -200.0f, 200.0f);
 
-  glMatrixMode(GL_MODELVIEW);
-  glLoadIdentity();
-  glRotatef(angley,1.0,0.0,0.0);
-  glRotatef(anglex,0.0,1.0,0.0);
-  glTranslatef(camx, camy, 0.0);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glRotatef(angley, 1.0, 0.0, 0.0);
+    glRotatef(anglex, 0.0, 1.0, 0.0);
+    glTranslatef(camx, camy, 0.0);
 
     positionLight();
 
     // dessineRepere();
     dessineMap();
 
-    if(marche)
+    if (marche)
         angleMarche += 1.0;
-    if(angleMarche >= 360)
+    if (angleMarche >= 360)
         angleMarche -= 360;
 
     glPushMatrix();
-            glRotatef(angleMarche, 0, -1, 0);
-            glTranslatef(0.0, 0.0, 25.0);
-            if(marche)
-                glTranslatef(0.0, motif[anim2], 0.0);
+    glRotatef(angleMarche, 0, -1, 0);
+    glTranslatef(0.0, 0.0, 25.0);
+    if (marche)
+        glTranslatef(0.0, motif[anim2], 0.0);
 
-            dessineCorps(texObject);
-            dessineQueue(anim1, texObject);
-            dessinePattesAvant(texObject);
-            gestionPattesArriere(anim2, marche, texObject);
-            dessineTete(texObject);
-            dessineCou(texObject);
+    dessineCorps(texObject);
+    dessineQueue(anim1, texObject);
+    dessinePattesAvant(texObject);
+    gestionPattesArriere(anim2, marche, texObject);
+    dessineTete(texObject);
+    dessineCou(texObject);
 
     glPopMatrix();
 
     animation1();
     animation2();
 
-  glFlush();
+    glFlush();
 
-  //On echange les buffers
-  glutSwapBuffers();
+    // On echange les buffers
+    glutSwapBuffers();
 }
 
-void initLight() {
-  
+void initLight()
+{
+
     glEnable(GL_LIGHTING);
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_NORMALIZE);
@@ -192,14 +190,14 @@ void initLight() {
     GLfloat lumiere_ciel[] = {0.6, 0.6, 0.6, 0.6};
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lumiere_ciel);
 
-    GLfloat ambiante0[] = { 0.3f, 0.3f, 0.3f, 1.0f};
-    GLfloat diffuse0[]  = { 1.5f, 0.8f, 0.6f, 1.0f};
+    GLfloat ambiante0[] = {0.3f, 0.3f, 0.3f, 1.0f};
+    GLfloat diffuse0[] = {1.5f, 0.8f, 0.6f, 1.0f};
     glLightfv(GL_LIGHT0, GL_AMBIENT, ambiante0);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse0);
     glEnable(GL_LIGHT0);
 
-    GLfloat diffuse1[]  = { 0.8f, 0.8f, 0.6f, 1.0f};
-    GLfloat speculaire1[] = { 1.0f, 1.0f, 1.0f, 1.0f};
+    GLfloat diffuse1[] = {0.8f, 0.8f, 0.6f, 1.0f};
+    GLfloat speculaire1[] = {1.0f, 1.0f, 1.0f, 1.0f};
     glLightfv(GL_LIGHT1, GL_SPECULAR, speculaire1);
     glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse1);
     glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 60.0f);
@@ -207,7 +205,8 @@ void initLight() {
     glEnable(GL_LIGHT1);
 }
 
-void positionLight(){
+void positionLight()
+{
 
     GLfloat soleil[] = {0.0, 33.0, 0.0, 0.0};
     glLightfv(GL_LIGHT0, GL_POSITION, soleil);
@@ -218,190 +217,196 @@ void positionLight(){
     glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, direction_spot);
 }
 
-void animation1(){
+void animation1()
+{
 
     frame1++;
-    if(frame1 >= vitesseAnim1){
+    if (frame1 >= vitesseAnim1)
+    {
         frame1 = 0;
         anim1++;
-        if(anim1 >= 8)
+        if (anim1 >= 8)
             anim1 = 0;
     }
 
     glutPostRedisplay();
 }
 
-void animation2(){
+void animation2()
+{
 
     frame2++;
-    if(frame2 >= vitesseAnim2){
+    if (frame2 >= vitesseAnim2)
+    {
         frame2 = 0;
         anim2++;
-        if(anim2 >= 8)
+        if (anim2 >= 8)
             anim2 = 0;
     }
 
     glutPostRedisplay();
 }
 
-void clavier(unsigned char touche,int x,int y)
+void clavier(unsigned char touche, int x, int y)
 {
-  switch (touche)
+    switch (touche)
     {
     case 'p': /* affichage du carre plein */
-      glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-      glutPostRedisplay();
-      break;
-    case 'f': /* affichage en mode fil de fer */
-      glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-      glutPostRedisplay();
-      break;
-    case 's' : /* Affichage en mode sommets seuls */
-      glPolygonMode(GL_FRONT_AND_BACK,GL_POINT);
-      glutPostRedisplay();
-      break;
-    case 'd':
-      glEnable(GL_DEPTH_TEST);
-      glutPostRedisplay();
-      break;
-    case 'D':
-      glDisable(GL_DEPTH_TEST);
-      glutPostRedisplay();
-      break;
-    case 'a'://Les faces � l'envers s'affichent en fil de fer
-      glPolygonMode(GL_FRONT,GL_FILL);
-      glPolygonMode(GL_FRONT,GL_LINE);
-      glutPostRedisplay();
-    break;
-    case 'q' : /*la touche 'q' permet de quitter le programme */
-      exit(0);
-    case 'z':// D�zoom
-        if(zoom>-100)
-            zoom -= 2 ;
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         glutPostRedisplay();
-    break;
-    case 'Z':// Zoom
-          zoom += 2 ;
-          glutPostRedisplay();
-    break;
-     case 'b':
-          camx += 2 ;
-          glutPostRedisplay();
-    break;
-     case 'n':
-          camx -= 2 ;
-          glutPostRedisplay();
-    break;
+        break;
+    case 'f': /* affichage en mode fil de fer */
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        glutPostRedisplay();
+        break;
+    case 's': /* Affichage en mode sommets seuls */
+        glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+        glutPostRedisplay();
+        break;
+    case 'd':
+        glEnable(GL_DEPTH_TEST);
+        glutPostRedisplay();
+        break;
+    case 'D':
+        glDisable(GL_DEPTH_TEST);
+        glutPostRedisplay();
+        break;
+    case 'a': // Les faces � l'envers s'affichent en fil de fer
+        glPolygonMode(GL_FRONT, GL_FILL);
+        glPolygonMode(GL_FRONT, GL_LINE);
+        glutPostRedisplay();
+        break;
+    case 'q': /*la touche 'q' permet de quitter le programme */
+        exit(0);
+    case 'z': // D�zoom
+        if (zoom > -100)
+            zoom -= 2;
+        glutPostRedisplay();
+        break;
+    case 'Z': // Zoom
+        zoom += 2;
+        glutPostRedisplay();
+        break;
+    case 'b':
+        camx += 2;
+        glutPostRedisplay();
+        break;
+    case 'n':
+        camx -= 2;
+        glutPostRedisplay();
+        break;
     case 'm':
-        if(marche)
+        if (marche)
             marche = false;
         else
             marche = true;
-          glutPostRedisplay();
-    break;
+        glutPostRedisplay();
+        break;
     }
 }
 
 void vSpecial(int key, int x, int y)
 {
-	switch (key)
-	{
-		case GLUT_KEY_UP :
-			angley += 10;
-			glutPostRedisplay();
-			break;
+    switch (key)
+    {
+    case GLUT_KEY_UP:
+        angley += 10;
+        glutPostRedisplay();
+        break;
 
-		case GLUT_KEY_DOWN :
-			angley -= 10;
-			glutPostRedisplay();
-			break;
+    case GLUT_KEY_DOWN:
+        angley -= 10;
+        glutPostRedisplay();
+        break;
 
-		case GLUT_KEY_LEFT :
-			anglex -= 10;
-			glutPostRedisplay();
-			break;
+    case GLUT_KEY_LEFT:
+        anglex -= 10;
+        glutPostRedisplay();
+        break;
 
-		case GLUT_KEY_RIGHT :
-			anglex += 10;
-			glutPostRedisplay();
-			break;
-	}
+    case GLUT_KEY_RIGHT:
+        anglex += 10;
+        glutPostRedisplay();
+        break;
+    }
 }
 
-void reshape(int x,int y)
+void reshape(int x, int y)
 {
-  if (x<y)
-    glViewport(0,(y-x)/2,x,x);
-  else
-    glViewport((x-y)/2,0,y,y);
+    if (x < y)
+        glViewport(0, (y - x) / 2, x, x);
+    else
+        glViewport((x - y) / 2, 0, y, y);
 }
 
-void mouse(int button, int state,int x,int y)
+void mouse(int button, int state, int x, int y)
 {
-  /* si on appuie sur le bouton gauche */
-  if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-  {
-    presse = 1; /* le booleen presse passe a 1 (vrai) */
-    xold = x; /* on sauvegarde la position de la souris */
-    yold=y;
-  }
-  /* si on relache le bouton gauche */
-  if (button == GLUT_LEFT_BUTTON && state == GLUT_UP)
-    presse=0; /* le booleen presse passe a 0 (faux) */
+    /* si on appuie sur le bouton gauche */
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+    {
+        presse = 1; /* le booleen presse passe a 1 (vrai) */
+        xold = x;   /* on sauvegarde la position de la souris */
+        yold = y;
+    }
+    /* si on relache le bouton gauche */
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_UP)
+        presse = 0; /* le booleen presse passe a 0 (faux) */
 }
 
-void mousemotion(int x,int y)
-  {
+void mousemotion(int x, int y)
+{
     if (presse) /* si le bouton gauche est presse */
     {
-      /* on modifie les angles de rotation de l'objet
-	 en fonction de la position actuelle de la souris et de la derniere
-	 position sauvegardee */
-      anglex=anglex+(x-xold);
-      angley=angley+(y-yold);
-      glutPostRedisplay(); /* on demande un rafraichissement de l'affichage */
+        /* on modifie les angles de rotation de l'objet
+       en fonction de la position actuelle de la souris et de la derniere
+       position sauvegardee */
+        anglex = anglex + (x - xold);
+        angley = angley + (y - yold);
+        glutPostRedisplay(); /* on demande un rafraichissement de l'affichage */
     }
 
-    xold=x; /* sauvegarde des valeurs courante de le position de la souris */
-    yold=y;
-  }
+    xold = x; /* sauvegarde des valeurs courante de le position de la souris */
+    yold = y;
+}
 
-  // extrait de jpegtex.cpp pour load la texture
+// extrait de jpegtex.cpp pour load la texture
 
-  // vu qu'on a 2 textures, il faut le traiter pour chacune d'entre elle d'ou les parametres supplementaires
-  void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur)
+// vu qu'on a 2 textures, il faut le traiter pour chacune d'entre elle d'ou les parametres supplementaires
+void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur)
 {
-  struct jpeg_decompress_struct cinfo;
-  struct jpeg_error_mgr jerr;
-  FILE *file;
-  unsigned char *ligne;
+    struct jpeg_decompress_struct cinfo;
+    struct jpeg_error_mgr jerr;
+    FILE *file;
+    unsigned char *ligne;
 
-  cinfo.err = jpeg_std_error(&jerr);
-  jpeg_create_decompress(&cinfo);
-  if ((file = fopen(fichier,"rb")) == 0)
-  {
-    fprintf(stderr,"Erreur : impossible d'ouvrir le fichier %s\n", fichier);
-    exit(1);
-  }
-  jpeg_stdio_src(&cinfo, file);
-  jpeg_read_header(&cinfo, TRUE);
+    cinfo.err = jpeg_std_error(&jerr);
+    jpeg_create_decompress(&cinfo);
+    if ((file = fopen(fichier, "rb")) == 0)
+    {
+        fprintf(stderr, "Erreur : impossible d'ouvrir le fichier %s\n", fichier);
+        exit(1);
+    }
+    jpeg_stdio_src(&cinfo, file);
+    jpeg_read_header(&cinfo, TRUE);
 
-  if ((cinfo.image_width != largeur) || (cinfo.image_height != hauteur)) {
-    fprintf(stderr,"Erreur : l'image doit etre de taille %dx%d\n", largeur, hauteur);
-    exit(1);
-  }
-  if (cinfo.jpeg_color_space == JCS_GRAYSCALE) {
-    fprintf(stderr,"Erreur : l'image doit etre de type RGB\n");
-    exit(1);
-  }
+    if ((cinfo.image_width != largeur) || (cinfo.image_height != hauteur))
+    {
+        fprintf(stderr, "Erreur : l'image doit etre de taille %dx%d\n", largeur, hauteur);
+        exit(1);
+    }
+    if (cinfo.jpeg_color_space == JCS_GRAYSCALE)
+    {
+        fprintf(stderr, "Erreur : l'image doit etre de type RGB\n");
+        exit(1);
+    }
 
-  jpeg_start_decompress(&cinfo);
-  while (cinfo.output_scanline < cinfo.output_height)
-  {
-    ligne = image + 3*largeur*cinfo.output_scanline;
-    jpeg_read_scanlines(&cinfo, &ligne, 1);
-  }
-  jpeg_finish_decompress(&cinfo);
-  jpeg_destroy_decompress(&cinfo);
-  fclose(file);
+    jpeg_start_decompress(&cinfo);
+    while (cinfo.output_scanline < cinfo.output_height)
+    {
+        ligne = image + 3 * largeur * cinfo.output_scanline;
+        jpeg_read_scanlines(&cinfo, &ligne, 1);
+    }
+    jpeg_finish_decompress(&cinfo);
+    jpeg_destroy_decompress(&cinfo);
+    fclose(file);
 }

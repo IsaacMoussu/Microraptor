@@ -74,19 +74,19 @@ void dessinePlume(GLuint texObject[])
             d = fSphere[i][j][3];
 
             s0 = i * PAS_S;
-            s1 = (i+1) * PAS_S;
+            s1 = (i + 1) * PAS_S;
             t0 = j * PAS_T;
-            t1 = (j+1) * PAS_T;
+            t1 = (j + 1) * PAS_T;
             glBegin(GL_POLYGON);
-            glTexCoord2f(s0,t0);
+            glTexCoord2f(s0, t0);
             glVertex3f(pSphere[a].x, pSphere[a].y, pSphere[a].z);
-            glTexCoord2f(s1,t0);
+            glTexCoord2f(s1, t0);
             glVertex3f(pSphere[b].x, pSphere[b].y, pSphere[b].z);
-            glTexCoord2f(s1,t1);
+            glTexCoord2f(s1, t1);
             glVertex3f(pSphere[c].x, pSphere[c].y, pSphere[c].z);
-            glTexCoord2f(s0,t1);
+            glTexCoord2f(s0, t1);
             glVertex3f(pSphere[d].x, pSphere[d].y, pSphere[d].z);
             glEnd();
         }
-    glDisable(GL_TEXTURE_2D); 
+    glDisable(GL_TEXTURE_2D);
 }
