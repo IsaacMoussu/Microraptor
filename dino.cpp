@@ -19,7 +19,7 @@ const int HAUTEUR = 768;
 const int LARGEUR_ECAILLE = 1028;
 const int HAUTEUR_ECAILLE = 1024;
 
-//crea de tableau (comme au TD3)
+// creation de tableau 
 unsigned char image[LARGEUR*HAUTEUR*3];
 unsigned char texture[HAUTEUR][LARGEUR][3];
 
@@ -54,7 +54,7 @@ void vSpecial(int key, int x, int y);
 void initLight();
 void positionLight();
 void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur);
-GLuint texObject[2]; //objet texture (voir cours slide 22)
+GLuint texObject[2]; //objet texture 
 
 int main(int argc,char **argv)
 {
@@ -75,7 +75,7 @@ loadJpegImage("./plume.jpg", image, LARGEUR, HAUTEUR);
 loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
 
 
-  // image dans texture  (TD3)
+  // image dans texture  
   for (int i=0;i<HAUTEUR;i++)
     for (int j=0;j<LARGEUR;j++) {
       texture[i][j][0]=image[i*LARGEUR*3+j*3];
@@ -92,7 +92,7 @@ loadJpegImage("./ecaille.jpg", imageEcaille, LARGEUR_ECAILLE, HAUTEUR_ECAILLE);
             }
 
 
-  // genere les 2 objt de texture
+  // genere les 2 objets de texture
 glGenTextures(2, texObject);
 
 // plume
@@ -172,16 +172,8 @@ void affichage()
 
     glPopMatrix();
 
-
-
-    //glColor3f(0.8, 0.8, 0.7); BEIGE
-    //glColor3f(0.35, 0.3, 0.3);MARRON
-    //glColor3f(0.6, 0, 0);ROUGE
-
     animation1();
     animation2();
-
-
 
   glFlush();
 
@@ -190,7 +182,7 @@ void affichage()
 }
 
 void initLight() {
-    // Allumage du moteur d'éclairage et lissage
+  
     glEnable(GL_LIGHTING);
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_NORMALIZE);
@@ -251,30 +243,6 @@ void animation2(){
 
     glutPostRedisplay();
 }
-
-/*void dessineRepere(){
-
-    //Rep�re
-    //axe x en rouge
-    glBegin(GL_LINES);
-        glColor3f(1.0,0.0,0.0);
-    	glVertex3f(0, 0,0.0);
-    	glVertex3f(1, 0,0.0);
-    glEnd();
-    //axe des y en vert
-    glBegin(GL_LINES);
-    	glColor3f(0.0,1.0,0.0);
-    	glVertex3f(0, 0,0.0);
-    	glVertex3f(0, 1,0.0);
-    glEnd();
-    //axe des z en bleu
-    glBegin(GL_LINES);
-    	glColor3f(0.0,0.0,1.0);
-    	glVertex3f(0, 0,0.0);
-    	glVertex3f(0, 0,1.0);
-    glEnd();
-}*/
-
 
 void clavier(unsigned char touche,int x,int y)
 {
@@ -400,7 +368,8 @@ void mousemotion(int x,int y)
 
   // extrait de jpegtex.cpp pour load la texture
 
-  void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur) // vu qu'on a 2 textures, il faut le traiter pour chacune d'entre elle d'ou les parametres supplementaires
+  // vu qu'on a 2 textures, il faut le traiter pour chacune d'entre elle d'ou les parametres supplementaires
+  void loadJpegImage(char *fichier, unsigned char *image, int largeur, int hauteur)
 {
   struct jpeg_decompress_struct cinfo;
   struct jpeg_error_mgr jerr;

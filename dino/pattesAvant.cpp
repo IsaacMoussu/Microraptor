@@ -6,7 +6,7 @@
 #endif
 #include <cstdlib>
 
-// L = longueur du cylindre , pour le mttre sur toute la longueur
+// L = longueur du cylindre , pour le mettre sur toute la longueur
 void plumesLeLongDuBras(float L, float cote, GLuint texObject[])
 {
     int N = 8;   // nombre de plumes sur le bras
@@ -43,7 +43,7 @@ void dessinePattesAvant(GLuint texObject[]){
         glPushMatrix();
             glRotatef(50 * i, 1, 0, 0);
             glPushMatrix();
-                glTranslatef(0.5, 1.5, 0.0);//z = 0.5 quand bras oouverts
+                glTranslatef(0.5, 1.5, 0.0); //z = 0.5 quand bras ouverts
                 glRotatef(-90 + 70 * i, 0, -1, 0);
                 glColor3f(0.2f, 0.3f, 0.2f); // VERT
                 glutSolidCylinder(0.5, 4.0, 6.0, 10.0);
